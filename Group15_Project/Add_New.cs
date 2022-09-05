@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Group15_Project
 {
-    public partial class Add_New : Form
+    public partial class frmAdd_New : Form
     {
-        public Add_New()
+        public frmAdd_New()
         {
             InitializeComponent();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Group15_Project
 {
-    public partial class View_Flights : Form
+    public partial class frmView_Flights : Form
     {
-        public View_Flights()
+        public frmView_Flights()
         {
             InitializeComponent();
         }

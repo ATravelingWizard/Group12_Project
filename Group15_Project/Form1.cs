@@ -31,5 +31,128 @@ namespace Group15_Project
         {
             Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(46, 51, 73);
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+           if (ActiveMdiChild != null)
+            {
+                if (ActiveMdiChild.GetType().Name != "frmAdd_New")
+                {
+                    ActiveMdiChild.Close();
+                    frmAdd_New frmAdd = new frmAdd_New();
+                    frmAdd.MdiParent = this;
+                    frmAdd.Show();
+                }
+                else
+                {
+                    Console.WriteLine("Add_New Window Already Open - Do Nothing");
+                }
+            }
+            else
+            {
+                frmAdd_New frmAdd = new frmAdd_New();
+                frmAdd.MdiParent = this;
+                frmAdd.Show();
+            }          
+        }
+
+        private void btnFlights_Click(object sender, EventArgs e)
+        { 
+           
+             if (ActiveMdiChild != null)
+             {
+                if (ActiveMdiChild.GetType().Name != "frmView_Flights")
+                {
+                    ActiveMdiChild.Close();
+                    frmView_Flights frmFlight = new frmView_Flights();
+                    frmFlight.MdiParent = this;
+                    frmFlight.Show();
+                }
+                else
+                {
+                    Console.WriteLine("View_Flights Window Already Open - Do Nothing");
+                }
+            }
+            else
+            {
+                frmView_Flights frmFlight = new frmView_Flights();
+                frmFlight.MdiParent = this;
+                frmFlight.Show();
+            }           
+        }
+
+        private void btnPass_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                if (ActiveMdiChild.GetType().Name != "frmView_Passengers")
+                {
+                    ActiveMdiChild.Close();
+                    frmView_Passengers frmPass = new frmView_Passengers();
+                    frmPass.MdiParent = this;
+                    frmPass.Show();
+                }
+                else
+                {
+                    Console.WriteLine("View_Passenger Window Already Open - Do Nothing");
+                }
+            }
+            else
+            {
+                frmView_Passengers frmPass = new frmView_Passengers();
+                frmPass.MdiParent = this;
+                frmPass.Show();
+            }
+            
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                if (ActiveMdiChild.GetType().Name != "frmGenerate_Report")
+                {
+                    ActiveMdiChild.Close();
+                    frmGenerate_Report frmReport = new frmGenerate_Report();
+                    frmReport.MdiParent = this;
+                    frmReport.Show();
+                }
+                else
+                {
+                    Console.WriteLine("Generate_Reports Window Already Open - Do Nothing");
+                }
+            }
+            else
+            {
+                frmGenerate_Report frmReport = new frmGenerate_Report();
+                frmReport.MdiParent = this;
+                frmReport.Show();
+            }
+            
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                if (ActiveMdiChild.GetType().Name != "frmHelp")
+                {
+                    ActiveMdiChild.Close();
+                    frmHelp frmHelp = new frmHelp();
+                    frmHelp.MdiParent = this;
+                    frmHelp.Show();
+                }
+                else
+                {
+                    Console.WriteLine("Generate_Reports Window Already Open - Do Nothing");
+                }
+            }
+            else
+            {
+                frmHelp frmHelp = new frmHelp();
+                frmHelp.MdiParent = this;
+                frmHelp.Show();
+            }
+        }
     }
 }

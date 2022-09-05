@@ -53,7 +53,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(186, 577);
+            this.pnlMain.Size = new System.Drawing.Size(186, 677);
             this.pnlMain.TabIndex = 0;
             // 
             // pnlTopLayout
@@ -77,7 +77,7 @@
             this.pnlBottomLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBottomLayout.Location = new System.Drawing.Point(0, 144);
             this.pnlBottomLayout.Name = "pnlBottomLayout";
-            this.pnlBottomLayout.Size = new System.Drawing.Size(186, 433);
+            this.pnlBottomLayout.Size = new System.Drawing.Size(186, 533);
             this.pnlBottomLayout.TabIndex = 1;
             // 
             // btnExit
@@ -87,7 +87,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(0, 408);
+            this.btnExit.Location = new System.Drawing.Point(0, 508);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(186, 25);
             this.btnExit.TabIndex = 0;
@@ -132,6 +132,7 @@
             this.btnNew.Text = "&Add New";
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnFlights
             // 
@@ -147,6 +148,7 @@
             this.btnFlights.Text = "&View Flights";
             this.btnFlights.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFlights.UseVisualStyleBackColor = true;
+            this.btnFlights.Click += new System.EventHandler(this.btnFlights_Click);
             // 
             // btnPass
             // 
@@ -162,6 +164,7 @@
             this.btnPass.Text = "&View Passengers";
             this.btnPass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPass.UseVisualStyleBackColor = true;
+            this.btnPass.Click += new System.EventHandler(this.btnPass_Click);
             // 
             // btnHelp
             // 
@@ -170,12 +173,13 @@
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.ForeColor = System.Drawing.Color.White;
-            this.btnHelp.Location = new System.Drawing.Point(0, 373);
+            this.btnHelp.Location = new System.Drawing.Point(0, 473);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(186, 35);
             this.btnHelp.TabIndex = 5;
             this.btnHelp.Text = "&Help";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnReport
             // 
@@ -191,13 +195,14 @@
             this.btnReport.Text = "&Generate Report";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(951, 577);
+            this.ClientSize = new System.Drawing.Size(1251, 677);
             this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

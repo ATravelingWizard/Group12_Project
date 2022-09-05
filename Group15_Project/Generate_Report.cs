@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Group15_Project
 {
-    public partial class Generate_Report : Form
+    public partial class frmGenerate_Report : Form
     {
-        public Generate_Report()
+        public frmGenerate_Report()
         {
             InitializeComponent();
         }

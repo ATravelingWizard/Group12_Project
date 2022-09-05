@@ -64,6 +64,12 @@
     <Compile Include="Generate_Report.Designer.cs">
       <DependentUpon>Generate_Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View_Flights.cs">
@@ -78,8 +84,17 @@
     <Compile Include="View_Passengers.Designer.cs">
       <DependentUpon>View_Passengers.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add_New.resx">
+      <DependentUpon>Add_New.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generate_Report.resx">
+      <DependentUpon>Generate_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -90,6 +105,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View_Flights.resx">
+      <DependentUpon>View_Flights.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View_Passengers.resx">
+      <DependentUpon>View_Passengers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,6 +1,6 @@
 ﻿namespace Group15_Project
 {
-    partial class frmView_Flights
+    partial class frmHelp
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // frmView_Flights
+            // frmHelp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "frmView_Flights";
+            this.Name = "frmHelp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "View_Flights";
+            this.Text = "Help";
             this.ResumeLayout(false);
 
         }
