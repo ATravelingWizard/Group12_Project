@@ -68,7 +68,6 @@ namespace Group15_Project
 
             lbxConfirm.Items.Clear();
             btnSubmit.Enabled = true;
-
         }
     }
 }
