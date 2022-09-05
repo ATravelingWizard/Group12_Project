@@ -16,5 +16,17 @@ namespace Group15_Project
         {
             InitializeComponent();
         }
+
+        private void lblNum_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmAdd_New_Load(object sender, EventArgs e)
+        {
+            //When form loads get first open seat and flight number from database.
+            lblOutputFlight.Text = "Insert flight number in here.";
+            lblOutputSeat.Text = "Insert seat number here.";
+        }
     }
 }
