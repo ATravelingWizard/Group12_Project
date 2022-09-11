@@ -108,6 +108,26 @@ namespace Group15_Project
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            if (ActiveMdiChild != null)
+            {
+                if (ActiveMdiChild.GetType().Name != "frmGenerate_Report")
+                {
+                    ActiveMdiChild.Close();
+                    frmGenerate_Report frmReport = new frmGenerate_Report();
+                    frmReport.MdiParent = this;
+                    frmReport.Show();
+                }
+                else
+                {
+                    Console.WriteLine("Generate_Reports Window Already Open - Do Nothing");
+                }
+            }
+            else
+            {
+                frmGenerate_Report frmReport = new frmGenerate_Report();
+                frmReport.MdiParent = this;
+                frmReport.Show();
+            }
             
         }
 
@@ -133,16 +153,6 @@ namespace Group15_Project
                 frmHelp.MdiParent = this;
                 frmHelp.Show();
             }
-        }
-
-        private void pnlBottomLayout_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblWelcomeTwo_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
