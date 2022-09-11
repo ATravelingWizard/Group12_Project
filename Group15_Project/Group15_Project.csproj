@@ -64,17 +64,29 @@
     <Compile Include="Default.Designer.cs">
       <DependentUpon>Default.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generate_Report.cs">
+    <Compile Include="Edit_Flights.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generate_Report.Designer.cs">
-      <DependentUpon>Generate_Report.cs</DependentUpon>
+    <Compile Include="Edit_Flights.Designer.cs">
+      <DependentUpon>Edit_Flights.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Passenger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Passenger.Designer.cs">
+      <DependentUpon>Edit_Passenger.cs</DependentUpon>
     </Compile>
     <Compile Include="Help.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Help.Designer.cs">
       <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Output.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Output.Designer.cs">
+      <DependentUpon>Output.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,11 +111,17 @@
     <EmbeddedResource Include="Default.resx">
       <DependentUpon>Default.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Generate_Report.resx">
-      <DependentUpon>Generate_Report.cs</DependentUpon>
+    <EmbeddedResource Include="Edit_Flights.resx">
+      <DependentUpon>Edit_Flights.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Passenger.resx">
+      <DependentUpon>Edit_Passenger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help.resx">
       <DependentUpon>Help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Output.resx">
+      <DependentUpon>Output.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
