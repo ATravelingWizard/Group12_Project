@@ -41,16 +41,23 @@
             this.lblBaggage = new System.Windows.Forms.Label();
             this.txtSearchSeatcode = new System.Windows.Forms.TextBox();
             this.lblSeat = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnGenerate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwFlights)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwFlights
             // 
+            this.dgwFlights.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgwFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwFlights.Location = new System.Drawing.Point(29, 30);
             this.dgwFlights.Name = "dgwFlights";
+            this.dgwFlights.RowHeadersWidth = 51;
             this.dgwFlights.Size = new System.Drawing.Size(976, 461);
             this.dgwFlights.TabIndex = 36;
+            this.dgwFlights.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwFlights_CellFormatting);
+            this.dgwFlights.CellStyleChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwFlights_CellStyleChanged);
             // 
             // lblOpenSeats
             // 
@@ -76,6 +83,7 @@
             this.txtSearchCode.Name = "txtSearchCode";
             this.txtSearchCode.Size = new System.Drawing.Size(119, 25);
             this.txtSearchCode.TabIndex = 26;
+            this.txtSearchCode.TextChanged += new System.EventHandler(this.txtSearchCode_TextChanged);
             // 
             // lblRating
             // 
@@ -101,6 +109,7 @@
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.Size = new System.Drawing.Size(119, 25);
             this.txtSearchName.TabIndex = 37;
+            this.txtSearchName.TextChanged += new System.EventHandler(this.txtSearchName_TextChanged);
             // 
             // txtSearchSurname
             // 
@@ -108,6 +117,7 @@
             this.txtSearchSurname.Name = "txtSearchSurname";
             this.txtSearchSurname.Size = new System.Drawing.Size(119, 25);
             this.txtSearchSurname.TabIndex = 38;
+            this.txtSearchSurname.TextChanged += new System.EventHandler(this.txtSearchSurname_TextChanged);
             // 
             // txtSearchEmail
             // 
@@ -115,6 +125,7 @@
             this.txtSearchEmail.Name = "txtSearchEmail";
             this.txtSearchEmail.Size = new System.Drawing.Size(119, 25);
             this.txtSearchEmail.TabIndex = 39;
+            this.txtSearchEmail.TextChanged += new System.EventHandler(this.txtSearchEmail_TextChanged);
             // 
             // txtSearchBaggage
             // 
@@ -122,6 +133,7 @@
             this.txtSearchBaggage.Name = "txtSearchBaggage";
             this.txtSearchBaggage.Size = new System.Drawing.Size(119, 25);
             this.txtSearchBaggage.TabIndex = 41;
+            this.txtSearchBaggage.TextChanged += new System.EventHandler(this.txtSearchBaggage_TextChanged);
             // 
             // lblBaggage
             // 
@@ -138,6 +150,7 @@
             this.txtSearchSeatcode.Name = "txtSearchSeatcode";
             this.txtSearchSeatcode.Size = new System.Drawing.Size(119, 25);
             this.txtSearchSeatcode.TabIndex = 43;
+            this.txtSearchSeatcode.TextChanged += new System.EventHandler(this.txtSearchSeatcode_TextChanged);
             // 
             // lblSeat
             // 
@@ -148,12 +161,48 @@
             this.lblSeat.TabIndex = 42;
             this.lblSeat.Text = "Search by Seat Code:";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.Location = new System.Drawing.Point(852, 613);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(119, 35);
+            this.btnDelete.TabIndex = 46;
+            this.btnDelete.Text = "Delete Selected ";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.ForeColor = System.Drawing.Color.Black;
+            this.btnEdit.Location = new System.Drawing.Point(506, 613);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(119, 35);
+            this.btnEdit.TabIndex = 45;
+            this.btnEdit.Text = "Edit Selected ";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.ForeColor = System.Drawing.Color.Black;
+            this.btnGenerate.Location = new System.Drawing.Point(232, 613);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(119, 35);
+            this.btnGenerate.TabIndex = 44;
+            this.btnGenerate.Text = "Generate Report";
+            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
             // frmView_Passengers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1038, 622);
+            this.ClientSize = new System.Drawing.Size(1038, 660);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.txtSearchSeatcode);
             this.Controls.Add(this.lblSeat);
             this.Controls.Add(this.txtSearchBaggage);
@@ -170,10 +219,11 @@
             this.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmView_Passengers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View_Passengers";
+            this.Load += new System.EventHandler(this.frmView_Passengers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwFlights)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -195,5 +245,8 @@
         private System.Windows.Forms.Label lblBaggage;
         private System.Windows.Forms.TextBox txtSearchSeatcode;
         private System.Windows.Forms.Label lblSeat;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnGenerate;
     }
 }
