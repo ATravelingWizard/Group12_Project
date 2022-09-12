@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgwFlights = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgwPassengers = new System.Windows.Forms.DataGridView();
             this.lblOpenSeats = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtSearchCode = new System.Windows.Forms.TextBox();
@@ -44,20 +45,33 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwFlights)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPassengers)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgwFlights
+            // dgwPassengers
             // 
-            this.dgwFlights.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgwFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwFlights.Location = new System.Drawing.Point(29, 30);
-            this.dgwFlights.Name = "dgwFlights";
-            this.dgwFlights.RowHeadersWidth = 51;
-            this.dgwFlights.Size = new System.Drawing.Size(976, 461);
-            this.dgwFlights.TabIndex = 36;
-            this.dgwFlights.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwFlights_CellFormatting);
-            this.dgwFlights.CellStyleChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwFlights_CellStyleChanged);
+            this.dgwPassengers.AllowUserToAddRows = false;
+            this.dgwPassengers.AllowUserToDeleteRows = false;
+            this.dgwPassengers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgwPassengers.BackgroundColor = System.Drawing.Color.White;
+            this.dgwPassengers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwPassengers.GridColor = System.Drawing.Color.Black;
+            this.dgwPassengers.Location = new System.Drawing.Point(29, 30);
+            this.dgwPassengers.Name = "dgwPassengers";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgwPassengers.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgwPassengers.RowHeadersWidth = 51;
+            this.dgwPassengers.Size = new System.Drawing.Size(976, 461);
+            this.dgwPassengers.TabIndex = 36;
+            this.dgwPassengers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwFlights_CellContentClick);
+            this.dgwPassengers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwFlights_CellFormatting);
+            this.dgwPassengers.CellStyleChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwFlights_CellStyleChanged);
             // 
             // lblOpenSeats
             // 
@@ -129,9 +143,9 @@
             // 
             // txtSearchBaggage
             // 
-            this.txtSearchBaggage.Location = new System.Drawing.Point(852, 514);
+            this.txtSearchBaggage.Location = new System.Drawing.Point(840, 514);
             this.txtSearchBaggage.Name = "txtSearchBaggage";
-            this.txtSearchBaggage.Size = new System.Drawing.Size(119, 25);
+            this.txtSearchBaggage.Size = new System.Drawing.Size(143, 25);
             this.txtSearchBaggage.TabIndex = 41;
             this.txtSearchBaggage.TextChanged += new System.EventHandler(this.txtSearchBaggage_TextChanged);
             // 
@@ -146,9 +160,9 @@
             // 
             // txtSearchSeatcode
             // 
-            this.txtSearchSeatcode.Location = new System.Drawing.Point(852, 567);
+            this.txtSearchSeatcode.Location = new System.Drawing.Point(840, 567);
             this.txtSearchSeatcode.Name = "txtSearchSeatcode";
-            this.txtSearchSeatcode.Size = new System.Drawing.Size(119, 25);
+            this.txtSearchSeatcode.Size = new System.Drawing.Size(143, 25);
             this.txtSearchSeatcode.TabIndex = 43;
             this.txtSearchSeatcode.TextChanged += new System.EventHandler(this.txtSearchSeatcode_TextChanged);
             // 
@@ -164,11 +178,11 @@
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(852, 613);
+            this.btnDelete.Location = new System.Drawing.Point(840, 613);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(119, 35);
+            this.btnDelete.Size = new System.Drawing.Size(143, 35);
             this.btnDelete.TabIndex = 46;
-            this.btnDelete.Text = "Delete Selected ";
+            this.btnDelete.Text = "Delete Selected Row";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -210,7 +224,7 @@
             this.Controls.Add(this.txtSearchEmail);
             this.Controls.Add(this.txtSearchSurname);
             this.Controls.Add(this.txtSearchName);
-            this.Controls.Add(this.dgwFlights);
+            this.Controls.Add(this.dgwPassengers);
             this.Controls.Add(this.lblOpenSeats);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.txtSearchCode);
@@ -224,7 +238,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View_Passengers";
             this.Load += new System.EventHandler(this.frmView_Passengers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwFlights)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPassengers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,7 +246,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgwFlights;
+        private System.Windows.Forms.DataGridView dgwPassengers;
         private System.Windows.Forms.Label lblOpenSeats;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtSearchCode;

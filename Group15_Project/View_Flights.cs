@@ -111,7 +111,7 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight WHERE Flight_Code = '{txtFlightNum.Text}' ";
+                string sql = $"SELECT * FROM Flight WHERE Flight_Code = '{txtFlightNum.Text}'";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
@@ -142,7 +142,7 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight  WHERE Destination_ID = '{cbxDestination.SelectedItem.ToString()}' ";
+                string sql = $"SELECT * FROM Flight WHERE Destination_ID = '{cbxDestination.SelectedItem.ToString()}' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
@@ -172,7 +172,7 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight  WHERE Total_Baggage_Weight = '{numBaggage.Text}' ";
+                string sql = $"SELECT * FROM Flight WHERE Total_Baggage_Weight = '{numBaggage.Text}' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
@@ -202,7 +202,7 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight  WHERE Seats_Available = '{numericUpDown1.Text}' ";
+                string sql = $"SELECT * FROM Flight WHERE Seats_Available = '{numericUpDown1.Text}' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
@@ -234,7 +234,7 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight  WHERE Departure_Time&Date LIKE '{dtpDepart.Format}' ";
+                string sql = $"SELECT * FROM Flight WHERE Departure_Time&Date LIKE '{dtpDepart.Format}' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
@@ -272,7 +272,10 @@ namespace Group15_Project
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //Delete functionality should be added here to delete selected entry.
+            foreach (DataGridViewRow row in dgwFlights.SelectedRows)
+            {
+                dgwFlights.Rows.Remove(row);
+            }
         }
     }
 }

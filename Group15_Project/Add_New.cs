@@ -34,6 +34,7 @@ namespace Group15_Project
 
         private void frmAdd_New_Load(object sender, EventArgs e)
         {
+            btnConfirm.Enabled = false;
             try
             {
                 conn = new SqlConnection(constr);
@@ -58,8 +59,8 @@ namespace Group15_Project
             Random rnd = new Random();
             seatCode = txtName.Text + rnd.Next(2000, 3000).ToString();
             baggageCode = txtName.Text + rnd.Next(8000, 9000).ToString();
-            seatNum = GetSeatLetter().ToString() + rnd.Next(1, 11);
-            passengerCode = txtSurname.Text + rnd.Next(1000, 3000);
+            seatNum = rnd.Next(1, 11).ToString();
+            passengerCode = txtSurname.Text + rnd.Next(1000, 3000).ToString();
 
             if(Double.Parse(txtBaggageWeight.Text) > 25.00)
             {
@@ -77,7 +78,7 @@ namespace Group15_Project
                 lbxConfirm.Items.Add("Seat Number: " + seatCode);
                 lbxConfirm.Items.Add("Flight Number: " + baggageCode);
 
-                btnSubmit.Enabled = false;
+                btnConfirm.Enabled = true;
             }
         }
 
@@ -107,7 +108,7 @@ namespace Group15_Project
 
                 conn.Close();
 
-                MessageBox.Show("Passenger" + txtName.Text + "added!");
+                MessageBox.Show("Passenger " + txtName.Text + " added!");
 
                 txtEmail.Text = "";
                 txtSurname.Text = "";
@@ -135,14 +136,6 @@ namespace Group15_Project
         private void numBaggage_ValueChanged(object sender, EventArgs e)
         {
 
-        }
-
-        public static char GetSeatLetter()
-        {
-            string chars = "ABCDEFGH";
-            Random rand = new Random();
-            int num = rand.Next(0, chars.Length);
-            return chars[num];
         }
     }
 }

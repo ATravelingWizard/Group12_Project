@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbxDestination = new System.Windows.Forms.ComboBox();
             this.txtFlightNum = new System.Windows.Forms.TextBox();
             this.lblRating = new System.Windows.Forms.Label();
@@ -167,8 +168,18 @@
             // 
             // dgwFlights
             // 
-            this.dgwFlights.BackgroundColor = System.Drawing.SystemColors.GrayText;
+            this.dgwFlights.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgwFlights.BackgroundColor = System.Drawing.Color.White;
             this.dgwFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgwFlights.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgwFlights.GridColor = System.Drawing.Color.Black;
             this.dgwFlights.Location = new System.Drawing.Point(13, 13);
             this.dgwFlights.Name = "dgwFlights";
             this.dgwFlights.RowHeadersWidth = 51;
@@ -203,9 +214,9 @@
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Location = new System.Drawing.Point(735, 596);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(119, 35);
+            this.btnDelete.Size = new System.Drawing.Size(200, 35);
             this.btnDelete.TabIndex = 26;
-            this.btnDelete.Text = "Delete Selected ";
+            this.btnDelete.Text = "Delete Selected Row";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 

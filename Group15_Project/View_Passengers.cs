@@ -57,14 +57,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = "SELECT * FROM Passenger ";
+                string sql = "SELECT * FROM Passengers ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
-                adap.Fill(ds, "Passenger");
+                adap.Fill(ds, "Passengers");
 
-                dgwFlights.DataSource = ds;
-                dgwFlights.DataMember = "Passenger";
+                dgwPassengers.DataSource = ds;
+                dgwPassengers.DataMember = "Passengers";
 
                 conn.Close();
 
@@ -86,14 +86,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Passenger WHERE Passenger_Code = '{txtSearchCode.Text}' ";
+                string sql = $"SELECT * FROM Passengers WHERE Passenger_Code = '{txtSearchCode.Text}' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
                 adap.Fill(ds, "Flight");
 
-                dgwFlights.DataSource = ds;
-                dgwFlights.DataMember = "Flight";
+                dgwPassengers.DataSource = ds;
+                dgwPassengers.DataMember = "Flight";
 
                 conn.Close();
 
@@ -115,14 +115,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Passenger WHERE Baggage_Code = '{txtSearchBaggage.Text}' ";
+                string sql = $"SELECT * FROM Passengers WHERE Baggage_Code = '{txtSearchBaggage.Text}' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
                 adap.Fill(ds, "Flight");
 
-                dgwFlights.DataSource = ds;
-                dgwFlights.DataMember = "Flight";
+                dgwPassengers.DataSource = ds;
+                dgwPassengers.DataMember = "Flight";
 
                 conn.Close();
 
@@ -155,14 +155,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Passenger WHERE Contact_Email LIKE '%{txtSearchEmail.Text}%' ";
+                string sql = $"SELECT * FROM Passengers WHERE Contact_Email LIKE '%{txtSearchEmail.Text}%' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
                 adap.Fill(ds, "Flight");
 
-                dgwFlights.DataSource = ds;
-                dgwFlights.DataMember = "Flight";
+                dgwPassengers.DataSource = ds;
+                dgwPassengers.DataMember = "Flight";
 
                 conn.Close();
 
@@ -184,14 +184,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Passenger WHERE First_name LIKE '%{txtSearchName.Text}%' ";
+                string sql = $"SELECT * FROM Passengers WHERE First_Name LIKE '%{txtSearchName.Text}%' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
                 adap.Fill(ds, "Flight");
 
-                dgwFlights.DataSource = ds;
-                dgwFlights.DataMember = "Flight";
+                dgwPassengers.DataSource = ds;
+                dgwPassengers.DataMember = "Flight";
 
                 conn.Close();
 
@@ -213,14 +213,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Passenger WHERE Last_Name LIKE '%{txtSearchSurname.Text}%' ";
+                string sql = $"SELECT * FROM Passengers WHERE Last_Name LIKE '%{txtSearchSurname.Text}%' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
                 adap.Fill(ds, "Flight");
 
-                dgwFlights.DataSource = ds;
-                dgwFlights.DataMember = "Flight";
+                dgwPassengers.DataSource = ds;
+                dgwPassengers.DataMember = "Flight";
 
                 conn.Close();
 
@@ -242,14 +242,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Passenger WHERE Seat_Code = '{txtSearchSeatcode.Text}' ";
+                string sql = $"SELECT * FROM Passengers WHERE Seat_Code = '{txtSearchSeatcode.Text}' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
                 adap.Fill(ds, "Flight");
 
-                dgwFlights.DataSource = ds;
-                dgwFlights.DataMember = "Flight";
+                dgwPassengers.DataSource = ds;
+                dgwPassengers.DataMember = "Flight";
 
                 conn.Close();
 
@@ -263,7 +263,11 @@ namespace Group15_Project
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //Add delete functionality here, this should delete the selected entry.
+            foreach(DataGridViewRow row in dgwPassengers.SelectedRows)
+            {
+                dgwPassengers.Rows.Remove(row);
+            }
+                
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -276,6 +280,11 @@ namespace Group15_Project
         {
             Output frmOut = new Output();
             frmOut.ShowDialog();
+        }
+
+        private void dgwFlights_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
