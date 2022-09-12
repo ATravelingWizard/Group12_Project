@@ -26,9 +26,8 @@ namespace Group15_Project
         SqlDataAdapter adap;
         DataSet ds;
         SqlDataReader read;
-        public int destinationid;
 
-
+        private int flight_number;
 
         private void gbxInfo_Enter(object sender, EventArgs e)
         {
@@ -40,35 +39,6 @@ namespace Group15_Project
             numBaggage.Value = 0;
             numSeats.Value = 0;
             lbxConfirm.Items.Clear();
-        }
-
-
-        public void refreshin()
-        {
-            try
-            {
-
-                conn.Open();
-
-                adap = new SqlDataAdapter();
-                ds = new DataSet();
-
-                string sql = "SELECT * FROM Destinations ";
-
-                comm = new SqlCommand(sql, conn);
-                read = comm.ExecuteReader();
-
-                while (read.Read())
-                {
-                    cbxDestination.Items.Add(read.GetValue(0));
-
-                }
-                conn.Close();
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -88,58 +58,7 @@ namespace Group15_Project
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            
 
-
-            //values sent second to the passenger table because it needs the baggage and seat code first otherwise an error will occur
-            try
-            {
-                conn.Open();
-                string sql = $"INSERT INTO Baggage VALUES('{numBaggage.Text}' ) ";
-
-                SqlDataAdapter adap = new SqlDataAdapter();
-                comm = new SqlCommand(sql, conn);
-                adap.InsertCommand = comm;
-                adap.InsertCommand.ExecuteNonQuery();
-
-                conn.Close();
-                // MessageBox.Show("Data sucessfully inserted");
-
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-
-            //Gets the PK of baggage and seat
-            refreshin();
-
-
-
-            //values sent last to the passenger table because it needs the baggage and seat code first otherwise an error will occur
-            try
-            {
-                conn.Open();
-                string sql = $"INSERT INTO Passenger VALUES('{destinationid}','{dateDeparture.Text}' ,'{dateArrival.Text}','{numBaggage.Text}','{numSeats.Text}') ";
-
-
-                SqlDataAdapter adap = new SqlDataAdapter();
-                comm = new SqlCommand(sql, conn);
-                adap.InsertCommand = comm;
-                adap.InsertCommand.ExecuteNonQuery();
-
-                conn.Close();
-                // MessageBox.Show("Data sucessfully inserted");
-
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-
-
-            btnSubmit.Enabled = true;
-            lbxConfirm.Items.Clear();
         }
 
         private void Add_flight_Load(object sender, EventArgs e)
@@ -150,12 +69,34 @@ namespace Group15_Project
                 conn = new SqlConnection(constr);
 
                 conn.Open();
+
+                string sql_query = "SELECT DISTINCT Destination_Name FROM Destinations";
+                adap = new SqlDataAdapter(sql_query, conn);
+
+                ds = new DataSet();
+                adap.Fill(ds, "Destinations");
+
+                cbxDestination.DisplayMember = "Destination_Name";
+                cbxDestination.DataSource = ds.Tables["Destinations"];
+
                 conn.Close();
+
+                Random rand = new Random();
+                flight_number = rand.Next(1, 200);
+
+                lblFlightID.Text = "Flight: " + GetFlightLetter() + GetFlightLetter() + flight_number.ToString();
             }
             catch (SqlException error)
             {
                 MessageBox.Show(error.Message);
             }
+        }
+        public static char GetFlightLetter()
+        {
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            Random rand = new Random();
+            int num = rand.Next(0, chars.Length);
+            return chars[num];
         }
     }
 }

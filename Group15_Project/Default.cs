@@ -57,14 +57,13 @@ namespace Group15_Project
         }
 
         private void btnFlights_Click(object sender, EventArgs e)
-        { 
-           
-             if (ActiveMdiChild != null)
-             {
-                if (ActiveMdiChild.GetType().Name != "frmView_Flights")
+        {
+            if (ActiveMdiChild != null)
+            {
+                if (ActiveMdiChild.GetType().Name != "Add_Flight")
                 {
                     ActiveMdiChild.Close();
-                    frmView_Flights frmFlight = new frmView_Flights();
+                    Add_flight frmFlight = new Add_flight();
                     frmFlight.MdiParent = this;
                     frmFlight.Show();
                 }
@@ -75,10 +74,10 @@ namespace Group15_Project
             }
             else
             {
-                frmView_Flights frmFlight = new frmView_Flights();
+                Add_flight frmFlight = new Add_flight();
                 frmFlight.MdiParent = this;
                 frmFlight.Show();
-            }           
+            }
         }
 
         private void btnPass_Click(object sender, EventArgs e)
@@ -106,35 +105,6 @@ namespace Group15_Project
             
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnHelp_Click(object sender, EventArgs e)
-        {
-            if (ActiveMdiChild != null)
-            {
-                if (ActiveMdiChild.GetType().Name != "frmHelp")
-                {
-                    ActiveMdiChild.Close();
-                    frmHelp frmHelp = new frmHelp();
-                    frmHelp.MdiParent = this;
-                    frmHelp.Show();
-                }
-                else
-                {
-                    Console.WriteLine("Generate_Reports Window Already Open - Do Nothing");
-                }
-            }
-            else
-            {
-                frmHelp frmHelp = new frmHelp();
-                frmHelp.MdiParent = this;
-                frmHelp.Show();
-            }
-        }
-
         private void pnlBottomLayout_Paint(object sender, PaintEventArgs e)
         {
 
@@ -143,6 +113,31 @@ namespace Group15_Project
         private void lblWelcomeTwo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnViewFlights_Click(object sender, EventArgs e)
+        {
+
+            if (ActiveMdiChild != null)
+            {
+                if (ActiveMdiChild.GetType().Name != "frmView_Flights")
+                {
+                    ActiveMdiChild.Close();
+                    frmView_Flights frmFlight = new frmView_Flights();
+                    frmFlight.MdiParent = this;
+                    frmFlight.Show();
+                }
+                else
+                {
+                    Console.WriteLine("View_Flights Window Already Open - Do Nothing");
+                }
+            }
+            else
+            {
+                frmView_Flights frmFlight = new frmView_Flights();
+                frmFlight.MdiParent = this;
+                frmFlight.Show();
+            }
         }
     }
 }
