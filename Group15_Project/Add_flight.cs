@@ -20,7 +20,7 @@ namespace Group15_Project
         }
 
         // varuables to be used for acessing the databases
-        string constr = @"Data Source=DESKTOP-73JV06H;Initial Catalog=Flight database;Integrated Security=True";
+        string constr = @"Data Source=LAPTOP-291EM4C8;Initial Catalog = Skyfall; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
@@ -63,15 +63,7 @@ namespace Group15_Project
                     cbxDestination.Items.Add(read.GetValue(0));
 
                 }
-
-
                 conn.Close();
-
-
-         
-
-
-
             }
             catch (SqlException error)
             {
@@ -159,11 +151,6 @@ namespace Group15_Project
 
                 conn.Open();
                 conn.Close();
-
-
-
-
-
             }
             catch (SqlException error)
             {

@@ -3,13 +3,13 @@ GO
 
 CREATE TABLE Seat
 (
-	Seat_Code	int	IDENTITY(1,1)PRIMARY KEY,
+	Seat_Code varchar(10)	PRIMARY KEY,
 	Seat_Placement	varchar(10)
 );
 
 CREATE TABLE Baggage
 (
-	Baggage_Code	int	IDENTITY(1,1)PRIMARY KEY,
+	Baggage_Code varchar(10) PRIMARY KEY,
 	Weight	decimal
 );
 
@@ -32,8 +32,8 @@ CREATE TABLE Flight
 CREATE TABLE Passengers
 (
 	Passenger_Code	varchar(15)	PRIMARY KEY,
-	Baggage_Code	int	FOREIGN KEY REFERENCES Baggage(Baggage_Code),
-	Seat_Code	int	FOREIGN KEY REFERENCES Seat(Seat_Code),
+	Baggage_Code	varchar(10)	FOREIGN KEY REFERENCES Baggage(Baggage_Code),
+	Seat_Code	varchar(10)	FOREIGN KEY REFERENCES Seat(Seat_Code),
 	First_Name	varchar(30),
 	Last_Name	varchar(30),
 	Contact_Email	varchar(30)

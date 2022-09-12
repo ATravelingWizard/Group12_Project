@@ -19,7 +19,7 @@ namespace Group15_Project
         }
 
         // varuables to be used for acessing the databases
-        string constr = @"Data Source=DESKTOP-73JV06H;Initial Catalog=Flight database;Integrated Security=True";
+        string constr = @"Data Source=LAPTOP-291EM4C8;Initial Catalog=Skyfall;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
@@ -36,9 +36,7 @@ namespace Group15_Project
 
         private void frmAdd_New_Load(object sender, EventArgs e)
         {
-            //When form loads get first open seat and flight number from database.
-            lblOutputFlight.Text = "Insert flight number in here.";
-            lblOutputSeat.Text = "Insert seat number here.";
+            
 
             //connection to the database
             try
@@ -47,11 +45,6 @@ namespace Group15_Project
 
                 conn.Open();
                 conn.Close();
-
-
-
-
-
             }
             catch (SqlException error)
             {
@@ -80,10 +73,8 @@ namespace Group15_Project
                     seatcode=(int)read.GetValue(0);
 
                 }
-               
 
                 conn.Close();
-
 
                 conn.Open();
 
@@ -98,14 +89,9 @@ namespace Group15_Project
                 while (read.Read())
                 {
                     baggagecode = (int)read.GetValue(0);
-
                 }
 
-
                 conn.Close();
-
-
-                
 
             }
             catch (SqlException error)
@@ -181,23 +167,7 @@ namespace Group15_Project
         {
             MessageBox.Show("New Passenger Has been added Successfully");
 
-            /* When this button is clicked the data of the passenger should be read into the passenger database and a code generated for the passenger.
-             * 
-             * It should also create a random code that is added into the baggage database along with the weight.
-             * 
-             * A Random seat code should be made with flight and seat number and entered into the Seat database.
-             * 
-             * Passenger Code gets read into the Passengers_on_flight database.
-             */
-
-            //sends values to database first
-
-
-            
-
-            
-
-            //values sent to the seat table
+           //values sent to the seat table
             try
             {
                 conn.Open();
@@ -222,7 +192,7 @@ namespace Group15_Project
             try
             {
                 conn.Open();
-                string sql = $"INSERT INTO Baggage VALUES('{numBaggage.Text}' ) ";
+                string sql = $"INSERT INTO Baggage VALUES('{baggagecode}','{numBaggage.Value}' ) ";
 
                 SqlDataAdapter adap = new SqlDataAdapter();
                 comm = new SqlCommand(sql, conn);
@@ -247,7 +217,7 @@ namespace Group15_Project
             try
             {
                 conn.Open();
-                string sql = $"INSERT INTO Passenger VALUES('{baggagecode}','{seatcode}','{txtName.Text}' ,'{txtSurname.Text}','{txtEmail.Text}') ";
+                string sql = $"INSERT INTO Passengers VALUES('{baggagecode}','{seatcode}','{txtName.Text}' ,'{txtSurname.Text}','{txtEmail.Text}') ";
 
 
                 SqlDataAdapter adap = new SqlDataAdapter();
