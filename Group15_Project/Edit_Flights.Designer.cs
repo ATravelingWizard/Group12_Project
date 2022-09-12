@@ -29,15 +29,20 @@
         private void InitializeComponent()
         {
             this.gbxInfo = new System.Windows.Forms.GroupBox();
+            this.lblBaggageOut = new System.Windows.Forms.Label();
+            this.lblSeatsOut = new System.Windows.Forms.Label();
             this.lblBaggage = new System.Windows.Forms.Label();
             this.lblSeats = new System.Windows.Forms.Label();
             this.lblFlightOut = new System.Windows.Forms.Label();
             this.lblFlightID = new System.Windows.Forms.Label();
             this.gbxDestination = new System.Windows.Forms.GroupBox();
-            this.cbxDestination = new System.Windows.Forms.ComboBox();
+            this.lblDestOut = new System.Windows.Forms.Label();
+            this.lblArriveOut = new System.Windows.Forms.Label();
+            this.lblDepTimeOut = new System.Windows.Forms.Label();
             this.lblDestinationID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbxDestination = new System.Windows.Forms.ComboBox();
             this.dateArrival = new System.Windows.Forms.DateTimePicker();
             this.dateDeparture = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -53,11 +58,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblSeatsOut = new System.Windows.Forms.Label();
-            this.lblBaggageOut = new System.Windows.Forms.Label();
-            this.lblDepTimeOut = new System.Windows.Forms.Label();
-            this.lblArriveOut = new System.Windows.Forms.Label();
-            this.lblDestOut = new System.Windows.Forms.Label();
             this.gbxInfo.SuspendLayout();
             this.gbxDestination.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,6 +82,24 @@
             this.gbxInfo.TabIndex = 6;
             this.gbxInfo.TabStop = false;
             this.gbxInfo.Text = "Flight Info";
+            // 
+            // lblBaggageOut
+            // 
+            this.lblBaggageOut.AutoSize = true;
+            this.lblBaggageOut.Location = new System.Drawing.Point(193, 91);
+            this.lblBaggageOut.Name = "lblBaggageOut";
+            this.lblBaggageOut.Size = new System.Drawing.Size(87, 13);
+            this.lblBaggageOut.TabIndex = 8;
+            this.lblBaggageOut.Text = "Current Baggage";
+            // 
+            // lblSeatsOut
+            // 
+            this.lblSeatsOut.AutoSize = true;
+            this.lblSeatsOut.Location = new System.Drawing.Point(193, 53);
+            this.lblSeatsOut.Name = "lblSeatsOut";
+            this.lblSeatsOut.Size = new System.Drawing.Size(117, 13);
+            this.lblSeatsOut.TabIndex = 7;
+            this.lblSeatsOut.Text = "Current Seats Available";
             // 
             // lblBaggage
             // 
@@ -135,13 +153,32 @@
             this.gbxDestination.TabStop = false;
             this.gbxDestination.Text = "Time and Date Information";
             // 
-            // cbxDestination
+            // lblDestOut
             // 
-            this.cbxDestination.FormattingEnabled = true;
-            this.cbxDestination.Location = new System.Drawing.Point(149, 87);
-            this.cbxDestination.Name = "cbxDestination";
-            this.cbxDestination.Size = new System.Drawing.Size(200, 21);
-            this.cbxDestination.TabIndex = 5;
+            this.lblDestOut.AutoSize = true;
+            this.lblDestOut.Location = new System.Drawing.Point(184, 90);
+            this.lblDestOut.Name = "lblDestOut";
+            this.lblDestOut.Size = new System.Drawing.Size(97, 13);
+            this.lblDestOut.TabIndex = 10;
+            this.lblDestOut.Text = "Current Destination";
+            // 
+            // lblArriveOut
+            // 
+            this.lblArriveOut.AutoSize = true;
+            this.lblArriveOut.Location = new System.Drawing.Point(184, 57);
+            this.lblArriveOut.Name = "lblArriveOut";
+            this.lblArriveOut.Size = new System.Drawing.Size(99, 13);
+            this.lblArriveOut.TabIndex = 9;
+            this.lblArriveOut.Text = "Current Arrival Time";
+            // 
+            // lblDepTimeOut
+            // 
+            this.lblDepTimeOut.AutoSize = true;
+            this.lblDepTimeOut.Location = new System.Drawing.Point(184, 26);
+            this.lblDepTimeOut.Name = "lblDepTimeOut";
+            this.lblDepTimeOut.Size = new System.Drawing.Size(113, 13);
+            this.lblDepTimeOut.TabIndex = 8;
+            this.lblDepTimeOut.Text = "Current Departure time";
             // 
             // lblDestinationID
             // 
@@ -169,6 +206,14 @@
             this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Departure Time:";
+            // 
+            // cbxDestination
+            // 
+            this.cbxDestination.FormattingEnabled = true;
+            this.cbxDestination.Location = new System.Drawing.Point(149, 87);
+            this.cbxDestination.Name = "cbxDestination";
+            this.cbxDestination.Size = new System.Drawing.Size(200, 21);
+            this.cbxDestination.TabIndex = 5;
             // 
             // dateArrival
             // 
@@ -320,51 +365,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lblSeatsOut
-            // 
-            this.lblSeatsOut.AutoSize = true;
-            this.lblSeatsOut.Location = new System.Drawing.Point(193, 53);
-            this.lblSeatsOut.Name = "lblSeatsOut";
-            this.lblSeatsOut.Size = new System.Drawing.Size(117, 13);
-            this.lblSeatsOut.TabIndex = 7;
-            this.lblSeatsOut.Text = "Current Seats Available";
-            // 
-            // lblBaggageOut
-            // 
-            this.lblBaggageOut.AutoSize = true;
-            this.lblBaggageOut.Location = new System.Drawing.Point(193, 91);
-            this.lblBaggageOut.Name = "lblBaggageOut";
-            this.lblBaggageOut.Size = new System.Drawing.Size(87, 13);
-            this.lblBaggageOut.TabIndex = 8;
-            this.lblBaggageOut.Text = "Current Baggage";
-            // 
-            // lblDepTimeOut
-            // 
-            this.lblDepTimeOut.AutoSize = true;
-            this.lblDepTimeOut.Location = new System.Drawing.Point(184, 26);
-            this.lblDepTimeOut.Name = "lblDepTimeOut";
-            this.lblDepTimeOut.Size = new System.Drawing.Size(113, 13);
-            this.lblDepTimeOut.TabIndex = 8;
-            this.lblDepTimeOut.Text = "Current Departure time";
-            // 
-            // lblArriveOut
-            // 
-            this.lblArriveOut.AutoSize = true;
-            this.lblArriveOut.Location = new System.Drawing.Point(184, 57);
-            this.lblArriveOut.Name = "lblArriveOut";
-            this.lblArriveOut.Size = new System.Drawing.Size(99, 13);
-            this.lblArriveOut.TabIndex = 9;
-            this.lblArriveOut.Text = "Current Arrival Time";
-            // 
-            // lblDestOut
-            // 
-            this.lblDestOut.AutoSize = true;
-            this.lblDestOut.Location = new System.Drawing.Point(184, 90);
-            this.lblDestOut.Name = "lblDestOut";
-            this.lblDestOut.Size = new System.Drawing.Size(97, 13);
-            this.lblDestOut.TabIndex = 10;
-            this.lblDestOut.Text = "Current Destination";
-            // 
             // Edit_Flights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,7 +375,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbxInfo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Edit_Flights";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit_Flights";

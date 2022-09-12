@@ -61,8 +61,8 @@ namespace Group15_Project
                 {
                     lbxConfirm.Items.Add("===========Flight Information=========");
                     lbxConfirm.Items.Add("Flight ID: " + lblFlightOut.Text);
-                    lbxConfirm.Items.Add("Total Baggage (KG): " + txtSeatsAvail.Text);
-                    lbxConfirm.Items.Add("Total Seats Available: " + txtTotalBaggage.Text);
+                    lbxConfirm.Items.Add("Total Seats Available: " + txtSeatsAvail.Text);
+                    lbxConfirm.Items.Add("Total Baggage (KG): " + txtTotalBaggage.Text);
                     lbxConfirm.Items.Add("Departure Time & Date: " + dateDeparture.Value.ToString());
                     lbxConfirm.Items.Add("Arrival Time & Date: " + dateArrival.Value.ToString());
                     lbxConfirm.Items.Add("Destination ID: " + cbxDestination.Text);
@@ -123,7 +123,7 @@ namespace Group15_Project
                 Random rand = new Random();
                 flight_number = rand.Next(1, 200);
 
-                lblFlightOut.Text = "Flight: " + GetFlightLetter() + GetFlightLetter() + flight_number.ToString();
+                lblFlightOut.Text = GetFlightLetter() + GetFlightLetter() + flight_number.ToString();
             }
             catch (SqlException error)
             {

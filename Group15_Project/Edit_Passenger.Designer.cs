@@ -42,15 +42,15 @@
             this.lblNum = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblEmailOut = new System.Windows.Forms.Label();
+            this.lblOutSurname = new System.Windows.Forms.Label();
+            this.lblOutName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblOutName = new System.Windows.Forms.Label();
-            this.lblOutSurname = new System.Windows.Forms.Label();
-            this.lblEmailOut = new System.Windows.Forms.Label();
             this.lblOutWeight = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.gbxInfo.SuspendLayout();
             this.gbxBaggage.SuspendLayout();
@@ -204,6 +204,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Passenger Info";
             // 
+            // lblEmailOut
+            // 
+            this.lblEmailOut.AutoSize = true;
+            this.lblEmailOut.Location = new System.Drawing.Point(129, 135);
+            this.lblEmailOut.Name = "lblEmailOut";
+            this.lblEmailOut.Size = new System.Drawing.Size(232, 13);
+            this.lblEmailOut.TabIndex = 8;
+            this.lblEmailOut.Text = "Current Database value should be inserted here";
+            // 
+            // lblOutSurname
+            // 
+            this.lblOutSurname.AutoSize = true;
+            this.lblOutSurname.Location = new System.Drawing.Point(129, 98);
+            this.lblOutSurname.Name = "lblOutSurname";
+            this.lblOutSurname.Size = new System.Drawing.Size(232, 13);
+            this.lblOutSurname.TabIndex = 7;
+            this.lblOutSurname.Text = "Current Database value should be inserted here";
+            // 
+            // lblOutName
+            // 
+            this.lblOutName.AutoSize = true;
+            this.lblOutName.Location = new System.Drawing.Point(129, 56);
+            this.lblOutName.Name = "lblOutName";
+            this.lblOutName.Size = new System.Drawing.Size(232, 13);
+            this.lblOutName.TabIndex = 6;
+            this.lblOutName.Text = "Current Database value should be inserted here";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -243,42 +270,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Baggage ";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 35);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(149, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Baggage Weight (Max 25KG):";
-            // 
-            // lblOutName
-            // 
-            this.lblOutName.AutoSize = true;
-            this.lblOutName.Location = new System.Drawing.Point(129, 56);
-            this.lblOutName.Name = "lblOutName";
-            this.lblOutName.Size = new System.Drawing.Size(232, 13);
-            this.lblOutName.TabIndex = 6;
-            this.lblOutName.Text = "Current Database value should be inserted here";
-            // 
-            // lblOutSurname
-            // 
-            this.lblOutSurname.AutoSize = true;
-            this.lblOutSurname.Location = new System.Drawing.Point(129, 98);
-            this.lblOutSurname.Name = "lblOutSurname";
-            this.lblOutSurname.Size = new System.Drawing.Size(232, 13);
-            this.lblOutSurname.TabIndex = 7;
-            this.lblOutSurname.Text = "Current Database value should be inserted here";
-            // 
-            // lblEmailOut
-            // 
-            this.lblEmailOut.AutoSize = true;
-            this.lblEmailOut.Location = new System.Drawing.Point(129, 135);
-            this.lblEmailOut.Name = "lblEmailOut";
-            this.lblEmailOut.Size = new System.Drawing.Size(232, 13);
-            this.lblEmailOut.TabIndex = 8;
-            this.lblEmailOut.Text = "Current Database value should be inserted here";
-            // 
             // lblOutWeight
             // 
             this.lblOutWeight.AutoSize = true;
@@ -287,6 +278,15 @@
             this.lblOutWeight.Size = new System.Drawing.Size(112, 13);
             this.lblOutWeight.TabIndex = 12;
             this.lblOutWeight.Text = "Current DB value here";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 35);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(149, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Baggage Weight (Max 25KG):";
             // 
             // button2
             // 
@@ -308,7 +308,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gbxInfo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Edit_Passenger";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit_Passenger";
