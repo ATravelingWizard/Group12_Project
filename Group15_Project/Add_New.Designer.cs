@@ -36,16 +36,15 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.gbxBaggage = new System.Windows.Forms.GroupBox();
-            this.numBaggage = new System.Windows.Forms.NumericUpDown();
             this.lblNum = new System.Windows.Forms.Label();
             this.gbxConfirm = new System.Windows.Forms.GroupBox();
             this.lbxConfirm = new System.Windows.Forms.ListBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.txtBaggageWeight = new System.Windows.Forms.TextBox();
             this.gbxInfo.SuspendLayout();
             this.gbxBaggage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numBaggage)).BeginInit();
             this.gbxConfirm.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,7 +115,7 @@
             // 
             // gbxBaggage
             // 
-            this.gbxBaggage.Controls.Add(this.numBaggage);
+            this.gbxBaggage.Controls.Add(this.txtBaggageWeight);
             this.gbxBaggage.Controls.Add(this.lblNum);
             this.gbxBaggage.ForeColor = System.Drawing.Color.White;
             this.gbxBaggage.Location = new System.Drawing.Point(6, 163);
@@ -125,20 +124,6 @@
             this.gbxBaggage.TabIndex = 0;
             this.gbxBaggage.TabStop = false;
             this.gbxBaggage.Text = "Baggage and Seat Information";
-            // 
-            // numBaggage
-            // 
-            this.numBaggage.DecimalPlaces = 2;
-            this.numBaggage.Location = new System.Drawing.Point(207, 33);
-            this.numBaggage.Maximum = new decimal(new int[] {
-            25,
-            0,
-            0,
-            0});
-            this.numBaggage.Name = "numBaggage";
-            this.numBaggage.Size = new System.Drawing.Size(132, 25);
-            this.numBaggage.TabIndex = 9;
-            this.numBaggage.ValueChanged += new System.EventHandler(this.numBaggage_ValueChanged);
             // 
             // lblNum
             // 
@@ -205,6 +190,13 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // txtBaggageWeight
+            // 
+            this.txtBaggageWeight.Location = new System.Drawing.Point(210, 32);
+            this.txtBaggageWeight.Name = "txtBaggageWeight";
+            this.txtBaggageWeight.Size = new System.Drawing.Size(132, 25);
+            this.txtBaggageWeight.TabIndex = 7;
+            // 
             // frmAdd_New
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -228,7 +220,6 @@
             this.gbxInfo.PerformLayout();
             this.gbxBaggage.ResumeLayout(false);
             this.gbxBaggage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numBaggage)).EndInit();
             this.gbxConfirm.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -244,12 +235,12 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.GroupBox gbxBaggage;
-        private System.Windows.Forms.NumericUpDown numBaggage;
         private System.Windows.Forms.Label lblNum;
         private System.Windows.Forms.GroupBox gbxConfirm;
         private System.Windows.Forms.ListBox lbxConfirm;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.TextBox txtBaggageWeight;
     }
 }

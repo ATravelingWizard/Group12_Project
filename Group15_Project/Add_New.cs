@@ -24,10 +24,8 @@ namespace Group15_Project
         SqlCommand comm;
         SqlDataAdapter adap;
         DataSet ds;
-        SqlDataReader read;
 
-        public int seatcode;
-        public int baggagecode;
+        public string seatCode, baggageCode, seatNum, passengerCode;
 
         private void lblNum_Click(object sender, EventArgs e)
         {
@@ -36,75 +34,17 @@ namespace Group15_Project
 
         private void frmAdd_New_Load(object sender, EventArgs e)
         {
-            
-
-            //connection to the database
             try
             {
                 conn = new SqlConnection(constr);
-
                 conn.Open();
                 conn.Close();
             }
-            catch (SqlException error)
+            catch(SqlException ex)
             {
-                MessageBox.Show(error.Message);
-            }
-
-        }
-
-        public void refreshin()
-        {
-            try
-            {
-
-                conn.Open();
-
-                adap = new SqlDataAdapter();
-                ds = new DataSet();
-
-                string sql = "SELECT * FROM Seat ";
-
-                comm = new SqlCommand(sql, conn);
-                read = comm.ExecuteReader();
-
-                while(read.Read() )
-                {
-                    seatcode=(int)read.GetValue(0);
-
-                }
-
-                conn.Close();
-
-                conn.Open();
-
-                adap = new SqlDataAdapter();
-                ds = new DataSet();
-
-                string bsql = "SELECT * FROM Baggage ";
-
-                comm = new SqlCommand(bsql, conn);
-                read = comm.ExecuteReader();
-
-                while (read.Read())
-                {
-                    baggagecode = (int)read.GetValue(0);
-                }
-
-                conn.Close();
-
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(ex.Message);
             }
         }
-
-        //intialising and declaring variables for seat assignment
-        public string seatletter = "A";
-        public int seatnumber=0;
-        public string seatarrangement = "A3";
-
 
         //this method generates a seat arrangement 
         public void theSeat()
@@ -114,129 +54,63 @@ namespace Group15_Project
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            // assigns a random number
-            Random rand = new Random();
-            seatnumber = rand.Next(1, 50);
+          
+            Random rnd = new Random();
+            seatCode = txtName.Text + rnd.Next(2000, 3000).ToString();
+            baggageCode = txtName.Text + rnd.Next(8000, 9000).ToString();
+            seatNum = GetSeatLetter().ToString() + rnd.Next(1, 11);
+            passengerCode = txtSurname.Text + rnd.Next(1000, 3000);
 
-            if (seatnumber < 20)
+            if(Double.Parse(txtBaggageWeight.Text) > 25.00)
             {
-                seatletter = "B";
+                MessageBox.Show("Enter a value smaller than 25KG");
             }
-            else if (seatnumber < 30)
+            else
             {
-                seatletter = "C";
+                //send values to listbox last
+                lbxConfirm.Items.Add("=======Passenger Info=======");
+                lbxConfirm.Items.Add("Name: " + txtName.Text);
+                lbxConfirm.Items.Add("Surname: " + txtSurname.Text);
+                lbxConfirm.Items.Add("Email: " + txtEmail.Text);
+                lbxConfirm.Items.Add("=======Flight Info=======");
+                lbxConfirm.Items.Add("Baggage Weight: " + txtBaggageWeight.Text + " kg");
+                lbxConfirm.Items.Add("Seat Number: " + seatCode);
+                lbxConfirm.Items.Add("Flight Number: " + baggageCode);
+
+                btnSubmit.Enabled = false;
             }
-            else if (seatnumber < 40)
-            {
-                seatletter = "D";
-            }
-            else if (seatnumber < 45)
-            {
-                seatletter = "E";
-            }
-            else if (seatnumber < 50)
-            {
-                seatletter = "F";
-            }
-
-            //seat alignments created
-            seatarrangement = seatnumber + seatletter;
-
-
-
-            int flightno;
-            // assigns a random number
-            Random frand = new Random();
-            flightno = frand.Next(1, 1000);
-
-
-            //send values to listbox last
-            lbxConfirm.Items.Add("=======Passenger Info=======");
-            lbxConfirm.Items.Add("Name: " + txtName.Text);
-            lbxConfirm.Items.Add("Surname: " + txtSurname.Text);
-            lbxConfirm.Items.Add("Email: " + txtEmail.Text);
-            lbxConfirm.Items.Add("=======Flight Info=======");
-            lbxConfirm.Items.Add("Baggage Weight: " + numBaggage.Value.ToString() + " kg");
-            lbxConfirm.Items.Add("Seat Number: " + seatarrangement);
-            lbxConfirm.Items.Add("Flight Number: " + flightno.ToString());
-
-            btnSubmit.Enabled = false;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("New Passenger Has been added Successfully");
-
-           //values sent to the seat table
             try
             {
-                conn.Open();
-                string sql = $"INSERT INTO Seat VALUES('{seatarrangement}' ) ";
+                adap = new SqlDataAdapter();
 
-                SqlDataAdapter adap = new SqlDataAdapter();
-                comm = new SqlCommand(sql, conn);
+                string add_baggage = $"INSERT INTO Baggage VALUES ('{baggageCode}', '{Double.Parse(txtBaggageWeight.Text)}')";
+                string add_seat = $"INSERT INTO Seat VALUES ('{seatCode}', '{seatNum}')";
+                string add_passenger = $"INSERT INTO Passengers VALUES('{passengerCode}','{baggageCode}','{seatCode}','{txtName.Text}', '{txtSurname.Text}', '{txtEmail.Text}')";
+                
+                conn.Open();
+
+                comm = new SqlCommand(add_baggage, conn);
+                adap.InsertCommand = comm;
+                adap.InsertCommand.ExecuteNonQuery();
+
+                comm = new SqlCommand(add_seat, conn);
+                adap.InsertCommand = comm;
+                adap.InsertCommand.ExecuteNonQuery();
+
+                comm = new SqlCommand(add_passenger, conn);
                 adap.InsertCommand = comm;
                 adap.InsertCommand.ExecuteNonQuery();
 
                 conn.Close();
-                // MessageBox.Show("Data sucessfully inserted");
-
             }
-            catch (SqlException error)
+            catch(SqlException ex)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(ex.Message);
             }
-
-
-            //values sent second to the passenger table because it needs the baggage and seat code first otherwise an error will occur
-            try
-            {
-                conn.Open();
-                string sql = $"INSERT INTO Baggage VALUES('{baggagecode}','{numBaggage.Value}' ) ";
-
-                SqlDataAdapter adap = new SqlDataAdapter();
-                comm = new SqlCommand(sql, conn);
-                adap.InsertCommand = comm;
-                adap.InsertCommand.ExecuteNonQuery();
-
-                conn.Close();
-                // MessageBox.Show("Data sucessfully inserted");
-
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-
-            //Gets the PK of baggage and seat
-            refreshin();
-
-
-
-            //values sent last to the passenger table because it needs the baggage and seat code first otherwise an error will occur
-            try
-            {
-                conn.Open();
-                string sql = $"INSERT INTO Passengers VALUES('{baggagecode}','{seatcode}','{txtName.Text}' ,'{txtSurname.Text}','{txtEmail.Text}') ";
-
-
-                SqlDataAdapter adap = new SqlDataAdapter();
-                comm = new SqlCommand(sql, conn);
-                adap.InsertCommand = comm;
-                adap.InsertCommand.ExecuteNonQuery();
-
-                conn.Close();
-                // MessageBox.Show("Data sucessfully inserted");
-
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-
-
-            btnSubmit.Enabled = true;
-            lbxConfirm.Items.Clear();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -244,7 +118,7 @@ namespace Group15_Project
             txtEmail.Text = "";
             txtSurname.Text = "";
             txtName.Text = "";
-
+            txtBaggageWeight.Text = "";
             lbxConfirm.Items.Clear();
             btnSubmit.Enabled = true;
         }
@@ -252,6 +126,14 @@ namespace Group15_Project
         private void numBaggage_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public static char GetSeatLetter()
+        {
+            string chars = "ABCDEFGH";
+            Random rand = new Random();
+            int num = rand.Next(0, chars.Length);
+            return chars[num];
         }
     }
 }

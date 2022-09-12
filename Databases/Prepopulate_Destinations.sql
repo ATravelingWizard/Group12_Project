@@ -4,7 +4,7 @@ INSERT INTO Destinations (Destination_ID, Destination_Name)
 VALUES ('JHB','OR Thambo')
 
 INSERT INTO Destinations (Destination_ID, Destination_Name)
-VALUES ('CPT','Cape Town')a
+VALUES ('CPT','Cape Town')
 
 INSERT INTO Destinations (Destination_ID, Destination_Name)
 VALUES ('RAA','Rand Airport')

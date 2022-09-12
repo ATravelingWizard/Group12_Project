@@ -4,7 +4,7 @@ GO
 CREATE TABLE Seat
 (
 	Seat_Code varchar(10)	PRIMARY KEY,
-	Seat_Placement	varchar(10)
+	Seat_Placement	int
 );
 
 CREATE TABLE Baggage
