@@ -106,6 +106,15 @@ namespace Group15_Project
                 adap.InsertCommand.ExecuteNonQuery();
 
                 conn.Close();
+
+                MessageBox.Show("Passenger" + txtName.Text + "added!");
+
+                txtEmail.Text = "";
+                txtSurname.Text = "";
+                txtName.Text = "";
+                txtBaggageWeight.Text = "";
+                lbxConfirm.Items.Clear();
+                btnSubmit.Enabled = true;
             }
             catch(SqlException ex)
             {
