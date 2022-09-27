@@ -28,6 +28,10 @@ namespace Group15_Project
         public int destinationid;
         public static string selected_flight;
 
+        public static string flightID;
+        public static int seats;
+        public static double baggage;
+
         private void frmView_Flights_Load(object sender, EventArgs e)
         {
             try
@@ -278,6 +282,10 @@ namespace Group15_Project
         {
             if (dgwFlights.SelectedRows.Count > 0)
             {
+                flightID = dgwFlights.SelectedCells[0].Value.ToString();
+                seats = int.Parse(dgwFlights.SelectedCells[5].Value.ToString());
+                baggage = double.Parse(dgwFlights.SelectedCells[4].Value.ToString());
+
                 Edit_Flights edit_Flights = new Edit_Flights();
                 edit_Flights.ShowDialog();
             }

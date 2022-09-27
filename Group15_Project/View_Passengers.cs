@@ -296,6 +296,8 @@ namespace Group15_Project
 
                 Edit_Passenger edit_Passenger = new Edit_Passenger();
                 edit_Passenger.ShowDialog();
+
+                refreshin();
             }
             else
             {

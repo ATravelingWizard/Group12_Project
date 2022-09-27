@@ -43,8 +43,6 @@ namespace Group15_Project
                 commPas = new SqlCommand(sqlPas, conn);
                 commPas.ExecuteNonQuery();
 
-                MessageBox.Show("Hier");
-
                 string sqlBag = $"UPDATE Baggage SET Weight= '{(double)numBaggage.Value}' WHERE Baggage_Code = 'Louw8927'";
                 commBag = new SqlCommand(sqlBag, conn);
                 commBag.ExecuteNonQuery();
