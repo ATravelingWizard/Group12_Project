@@ -287,7 +287,7 @@ namespace Group15_Project
 
                 conn.Open();
 
-                string sql = $"SELECT Weight FROM Baggage WHERE Baggage_Code = 'Louw8927'";
+                string sql = $"SELECT Weight FROM Baggage WHERE Baggage_Code = '{dgwPassengers.SelectedCells[1].Value.ToString()}'";
 
                 comm = new SqlCommand(sql, conn);
                 bag = Convert.ToDouble(comm.ExecuteScalar());
