@@ -19,7 +19,7 @@ namespace Group15_Project
         }
 
         // variables to be used for acessing the databases
-        string constr = @"Data Source=LAPTOP-291EM4C8;Initial Catalog=Skyfall;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string constr = @"Data Source=.;Initial Catalog = Skyfall; Integrated Security = True";
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
@@ -48,7 +48,7 @@ namespace Group15_Project
             adap = new SqlDataAdapter();
             ds = new DataSet();
 
-            string bsql = "SELECT * FROM Destinations ";
+            string bsql = "SELECT DISTINCT Destination_Name FROM Destinations ";
 
             comm = new SqlCommand(bsql, conn);
             read = comm.ExecuteReader();
@@ -266,8 +266,15 @@ namespace Group15_Project
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Edit_Flights edit_Flights = new Edit_Flights();
-            edit_Flights.ShowDialog();
+            if (dgwFlights.SelectedRows.Count > 0)
+            {
+                Edit_Flights edit_Flights = new Edit_Flights();
+                edit_Flights.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a flight to edit");
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
