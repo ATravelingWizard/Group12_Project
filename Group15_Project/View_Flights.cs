@@ -28,7 +28,7 @@ namespace Group15_Project
         public int destinationid;
         public static string selected_flight;
 
-        public static string flightID;
+        public static string flightID, dest;
         public static int seats;
         public static double baggage;
 
@@ -285,9 +285,12 @@ namespace Group15_Project
                 flightID = dgwFlights.SelectedCells[0].Value.ToString();
                 seats = int.Parse(dgwFlights.SelectedCells[5].Value.ToString());
                 baggage = double.Parse(dgwFlights.SelectedCells[4].Value.ToString());
+                dest = dgwFlights.SelectedCells[1].Value.ToString();
 
                 Edit_Flights edit_Flights = new Edit_Flights();
                 edit_Flights.ShowDialog();
+
+                refreshin();
             }
             else
             {

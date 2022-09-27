@@ -16,9 +16,6 @@ namespace Group15_Project
         string constr = @"Data Source=.;Initial Catalog = Skyfall; Integrated Security = True";
         SqlConnection conn;
         SqlCommand commPas, commBag, comm;
-        SqlDataAdapter adap;
-        DataSet ds;
-        SqlDataReader read;
 
         public string passID;
 
@@ -43,7 +40,7 @@ namespace Group15_Project
                 commPas = new SqlCommand(sqlPas, conn);
                 commPas.ExecuteNonQuery();
 
-                string sqlBag = $"UPDATE Baggage SET Weight= '{(double)numBaggage.Value}' WHERE Baggage_Code = 'Louw8927'";
+                string sqlBag = $"UPDATE Baggage SET Weight= '{(double)numBaggage.Value}' WHERE Baggage_Code = '{frmView_Passengers.bagID}'";
                 commBag = new SqlCommand(sqlBag, conn);
                 commBag.ExecuteNonQuery();
 

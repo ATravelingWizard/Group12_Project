@@ -379,6 +379,7 @@
             this.Name = "Edit_Flights";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit_Flights";
+            this.Load += new System.EventHandler(this.Edit_Flights_Load);
             this.gbxInfo.ResumeLayout(false);
             this.gbxInfo.PerformLayout();
             this.gbxDestination.ResumeLayout(false);
