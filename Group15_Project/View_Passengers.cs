@@ -279,11 +279,10 @@ namespace Group15_Project
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (dgwPassengers.SelectedRows.Count > 0)
-            {
-
-                name = "Louw";
-                surname = "Hugo";
-                email = "lh@gmail.com";
+            { 
+                name = dgwPassengers.SelectedCells[3].Value.ToString();
+                surname = dgwPassengers.SelectedCells[4].Value.ToString();
+                email = dgwPassengers.SelectedCells[5].Value.ToString();
                 bagID = "Louw8927";
 
                 conn.Open();
