@@ -62,7 +62,7 @@ namespace Group15_Project
             {
                 MessageBox.Show("An Error has ocurred: " + ex);
             }
-            int i;
+
             try
             {
                 if (Double.Parse(txtTotalBaggage.Text) > 1200.00 || txtTotalBaggage.Text == null)
