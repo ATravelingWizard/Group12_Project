@@ -16,6 +16,7 @@ namespace Group15_Project
         string constr = @"Data Source=.;Initial Catalog = Skyfall; Integrated Security = True";
         SqlConnection conn;
         SqlCommand commFlight, commBag, comm;
+        SqlDataReader read;
 
         public Edit_Flights()
         {
@@ -58,6 +59,25 @@ namespace Group15_Project
             lblDestOut.Text = frmView_Flights.dest.ToString();
 
             lblFlightOut2.Text = frmView_Flights.flightID;
+
+            conn = new SqlConnection(constr);
+
+            conn.Open();
+            conn.Close();
+
+            conn.Open();
+
+            string bsql = "SELECT DISTINCT Destination_ID FROM Destinations ";
+
+            comm = new SqlCommand(bsql, conn);
+            read = comm.ExecuteReader();
+
+            while (read.Read())
+            {
+                cbxDestination.Items.Add(read.GetValue(0));
+            }
+
+            conn.Close();
         }
     }
 }

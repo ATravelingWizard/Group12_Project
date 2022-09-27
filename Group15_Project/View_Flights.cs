@@ -50,9 +50,6 @@ namespace Group15_Project
             refreshin();
             conn.Open();
 
-            adap = new SqlDataAdapter();
-            ds = new DataSet();
-
             string bsql = "SELECT DISTINCT Destination_Name FROM Destinations ";
 
             comm = new SqlCommand(bsql, conn);
@@ -61,7 +58,6 @@ namespace Group15_Project
             while (read.Read())
             {
                 cbxDestination.Items.Add(  read.GetValue(0));
-
             }
 
 
