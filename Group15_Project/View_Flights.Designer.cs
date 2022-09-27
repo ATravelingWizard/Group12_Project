@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbxDestination = new System.Windows.Forms.ComboBox();
             this.txtFlightNum = new System.Windows.Forms.TextBox();
             this.lblRating = new System.Windows.Forms.Label();
@@ -45,6 +45,7 @@
             this.btnGenerate = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.lblPlaceHolder = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numBaggage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwFlights)).BeginInit();
@@ -89,7 +90,6 @@
             // 
             this.dtpDepart.Checked = false;
             this.dtpDepart.CustomFormat = "";
-            this.dtpDepart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDepart.Location = new System.Drawing.Point(735, 497);
             this.dtpDepart.Name = "dtpDepart";
             this.dtpDepart.Size = new System.Drawing.Size(200, 25);
@@ -171,14 +171,14 @@
             this.dgwFlights.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgwFlights.BackgroundColor = System.Drawing.Color.White;
             this.dgwFlights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgwFlights.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgwFlights.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgwFlights.GridColor = System.Drawing.Color.Black;
             this.dgwFlights.Location = new System.Drawing.Point(13, 13);
             this.dgwFlights.MultiSelect = false;
@@ -222,12 +222,23 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // lblPlaceHolder
+            // 
+            this.lblPlaceHolder.AutoSize = true;
+            this.lblPlaceHolder.Location = new System.Drawing.Point(334, 605);
+            this.lblPlaceHolder.Name = "lblPlaceHolder";
+            this.lblPlaceHolder.Size = new System.Drawing.Size(92, 17);
+            this.lblPlaceHolder.TabIndex = 27;
+            this.lblPlaceHolder.Text = "lblPlaceHolder";
+            this.lblPlaceHolder.Visible = false;
+            // 
             // frmView_Flights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1004, 643);
+            this.Controls.Add(this.lblPlaceHolder);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnGenerate);
@@ -277,5 +288,6 @@
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label lblPlaceHolder;
     }
 }

@@ -138,12 +138,25 @@ namespace Group15_Project
             try
             {
 
+                adap = new SqlDataAdapter();
+                string destination = $"SELECT * FROM Destinations WHERE Destination_Name LIKE '" + cbxDestination.Text + "'";
+
+                conn.Open();
+
+                comm = new SqlCommand(destination, conn);
+                ds = new DataSet();
+                lblPlaceHolder.Text = Convert.ToString(comm.ExecuteScalar());
+
+                conn.Close();
+
+
+
                 conn.Open();
 
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight WHERE Destination_ID = '{cbxDestination.SelectedItem.ToString()}' ";
+                string sql = $"SELECT * FROM Flight WHERE Destination_ID = '{lblPlaceHolder.Text}'";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
@@ -224,8 +237,6 @@ namespace Group15_Project
 
         private void dtpDepart_ValueChanged(object sender, EventArgs e)
         {
-
-
             //Cant figure out how to filter using the database format date time format
             try
             {
@@ -235,7 +246,7 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight WHERE Departure_Time&Date LIKE '{dtpDepart.Format}' ";
+                string sql = $"SELECT * FROM Flight WHERE Departure_Time LIKE '{dtpDepart.Value}' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;

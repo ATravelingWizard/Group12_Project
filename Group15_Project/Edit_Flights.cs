@@ -36,7 +36,7 @@ namespace Group15_Project
             {
                 conn.Open();
 
-                string sqlFlight = $"UPDATE Flight SET Total_Baggage_Weight = '{numBaggageOut.Value}', Seats_Available = '{numSeatOut.Value}' WHERE Flight_Code = '{frmView_Flights.flightID}'";
+                string sqlFlight = $"UPDATE Flight SET Total_Baggage_Weight = '{numBaggageOut.Value}', Seats_Available = '{numSeatOut.Value}', Departure_Time = '{dateDeparture.Value}', Arrival_Time = '{dateArrival.Value}' WHERE Flight_Code = '{frmView_Flights.flightID}'";
                 commFlight = new SqlCommand(sqlFlight, conn);
                 commFlight.ExecuteNonQuery();
 
