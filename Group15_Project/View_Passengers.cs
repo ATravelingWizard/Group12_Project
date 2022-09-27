@@ -27,9 +27,11 @@ namespace Group15_Project
         SqlDataReader read;
         public int destinationid;
 
-        public string name, surname, email;
-        public double bag;
+        public static string name, surname, email, bagID;
+        public static double bag
+
         public static string selected_passagenger;
+
 
         private void frmView_Passengers_Load(object sender, EventArgs e)
         {
@@ -278,20 +280,20 @@ namespace Group15_Project
         {
             if (dgwPassengers.SelectedRows.Count > 0)
             {
-                name = dgwPassengers.SelectedCells[3].RowIndex.ToString();
-                surname = dgwPassengers.SelectedCells[4].RowIndex.ToString();
-                email = dgwPassengers.SelectedCells[5].RowIndex.ToString();
+                name = "Louw";
+                surname = "Hugo";
+                email = "lh@gmail.com";
+                bagID = "Louw8927";
 
                 conn.Open();
 
-                string sql = $"SELECT Weight FROM Baggage WHERE Baggage_Code = '{dgwPassengers.SelectedCells[1].RowIndex.ToString()}'";
+                string sql = $"SELECT Weight FROM Baggage WHERE Baggage_Code = 'Louw8927'";
 
                 comm = new SqlCommand(sql, conn);
-                bag = Convert.ToDouble(comm.ExecuteNonQuery());
+                bag = Convert.ToDouble(comm.ExecuteScalar());
 
                 conn.Close();
 
-                MessageBox.Show(name);
                 Edit_Passenger edit_Passenger = new Edit_Passenger();
                 edit_Passenger.ShowDialog();
             }
