@@ -34,6 +34,8 @@
             this.gbxConfirm = new System.Windows.Forms.GroupBox();
             this.lbxConfirm = new System.Windows.Forms.ListBox();
             this.gbxInfo = new System.Windows.Forms.GroupBox();
+            this.txtTotalBaggage = new System.Windows.Forms.TextBox();
+            this.txtSeatsAvail = new System.Windows.Forms.TextBox();
             this.lblBaggage = new System.Windows.Forms.Label();
             this.lblSeats = new System.Windows.Forms.Label();
             this.lblFlightOut = new System.Windows.Forms.Label();
@@ -45,8 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateArrival = new System.Windows.Forms.DateTimePicker();
             this.dateDeparture = new System.Windows.Forms.DateTimePicker();
-            this.txtSeatsAvail = new System.Windows.Forms.TextBox();
-            this.txtTotalBaggage = new System.Windows.Forms.TextBox();
+            this.lblPlaceHolder = new System.Windows.Forms.Label();
             this.gbxConfirm.SuspendLayout();
             this.gbxInfo.SuspendLayout();
             this.gbxDestination.SuspendLayout();
@@ -55,9 +56,10 @@
             // btnConfirm
             // 
             this.btnConfirm.ForeColor = System.Drawing.Color.Black;
-            this.btnConfirm.Location = new System.Drawing.Point(536, 299);
+            this.btnConfirm.Location = new System.Drawing.Point(715, 368);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(144, 39);
+            this.btnConfirm.Size = new System.Drawing.Size(192, 48);
             this.btnConfirm.TabIndex = 9;
             this.btnConfirm.Text = "Confirm Flight Info";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -66,9 +68,10 @@
             // btnClear
             // 
             this.btnClear.ForeColor = System.Drawing.Color.Black;
-            this.btnClear.Location = new System.Drawing.Point(252, 299);
+            this.btnClear.Location = new System.Drawing.Point(336, 368);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(144, 39);
+            this.btnClear.Size = new System.Drawing.Size(192, 48);
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear Fields";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@
             // btnSubmit
             // 
             this.btnSubmit.ForeColor = System.Drawing.Color.Black;
-            this.btnSubmit.Location = new System.Drawing.Point(29, 299);
+            this.btnSubmit.Location = new System.Drawing.Point(39, 368);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(144, 39);
+            this.btnSubmit.Size = new System.Drawing.Size(192, 48);
             this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "Submit Info";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -89,9 +93,11 @@
             // 
             this.gbxConfirm.Controls.Add(this.lbxConfirm);
             this.gbxConfirm.ForeColor = System.Drawing.Color.White;
-            this.gbxConfirm.Location = new System.Drawing.Point(445, 42);
+            this.gbxConfirm.Location = new System.Drawing.Point(593, 52);
+            this.gbxConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbxConfirm.Name = "gbxConfirm";
-            this.gbxConfirm.Size = new System.Drawing.Size(326, 251);
+            this.gbxConfirm.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxConfirm.Size = new System.Drawing.Size(435, 309);
             this.gbxConfirm.TabIndex = 6;
             this.gbxConfirm.TabStop = false;
             this.gbxConfirm.Text = "Confirm Information";
@@ -102,9 +108,11 @@
             this.lbxConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.lbxConfirm.ForeColor = System.Drawing.Color.White;
             this.lbxConfirm.FormattingEnabled = true;
-            this.lbxConfirm.Location = new System.Drawing.Point(7, 25);
+            this.lbxConfirm.ItemHeight = 16;
+            this.lbxConfirm.Location = new System.Drawing.Point(9, 31);
+            this.lbxConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lbxConfirm.Name = "lbxConfirm";
-            this.lbxConfirm.Size = new System.Drawing.Size(313, 212);
+            this.lbxConfirm.Size = new System.Drawing.Size(416, 260);
             this.lbxConfirm.TabIndex = 0;
             // 
             // gbxInfo
@@ -117,47 +125,69 @@
             this.gbxInfo.Controls.Add(this.lblFlightID);
             this.gbxInfo.Controls.Add(this.gbxDestination);
             this.gbxInfo.ForeColor = System.Drawing.Color.White;
-            this.gbxInfo.Location = new System.Drawing.Point(29, 42);
+            this.gbxInfo.Location = new System.Drawing.Point(39, 52);
+            this.gbxInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbxInfo.Name = "gbxInfo";
-            this.gbxInfo.Size = new System.Drawing.Size(367, 251);
+            this.gbxInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxInfo.Size = new System.Drawing.Size(489, 309);
             this.gbxInfo.TabIndex = 5;
             this.gbxInfo.TabStop = false;
             this.gbxInfo.Text = "Flight Info";
             this.gbxInfo.Enter += new System.EventHandler(this.gbxInfo_Enter);
             // 
+            // txtTotalBaggage
+            // 
+            this.txtTotalBaggage.Location = new System.Drawing.Point(257, 108);
+            this.txtTotalBaggage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotalBaggage.Name = "txtTotalBaggage";
+            this.txtTotalBaggage.Size = new System.Drawing.Size(193, 22);
+            this.txtTotalBaggage.TabIndex = 8;
+            // 
+            // txtSeatsAvail
+            // 
+            this.txtSeatsAvail.Location = new System.Drawing.Point(257, 62);
+            this.txtSeatsAvail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSeatsAvail.Name = "txtSeatsAvail";
+            this.txtSeatsAvail.Size = new System.Drawing.Size(193, 22);
+            this.txtSeatsAvail.TabIndex = 7;
+            // 
             // lblBaggage
             // 
             this.lblBaggage.AutoSize = true;
-            this.lblBaggage.Location = new System.Drawing.Point(6, 91);
+            this.lblBaggage.Location = new System.Drawing.Point(8, 112);
+            this.lblBaggage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBaggage.Name = "lblBaggage";
-            this.lblBaggage.Size = new System.Drawing.Size(80, 13);
+            this.lblBaggage.Size = new System.Drawing.Size(101, 16);
             this.lblBaggage.TabIndex = 6;
             this.lblBaggage.Text = "Total Baggage:";
             // 
             // lblSeats
             // 
             this.lblSeats.AutoSize = true;
-            this.lblSeats.Location = new System.Drawing.Point(6, 53);
+            this.lblSeats.Location = new System.Drawing.Point(8, 65);
+            this.lblSeats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSeats.Name = "lblSeats";
-            this.lblSeats.Size = new System.Drawing.Size(110, 13);
+            this.lblSeats.Size = new System.Drawing.Size(139, 16);
             this.lblSeats.TabIndex = 3;
             this.lblSeats.Text = "Total Seats Available:";
             // 
             // lblFlightOut
             // 
             this.lblFlightOut.AutoSize = true;
-            this.lblFlightOut.Location = new System.Drawing.Point(190, 25);
+            this.lblFlightOut.Location = new System.Drawing.Point(253, 31);
+            this.lblFlightOut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFlightOut.Name = "lblFlightOut";
-            this.lblFlightOut.Size = new System.Drawing.Size(149, 13);
+            this.lblFlightOut.Size = new System.Drawing.Size(187, 16);
             this.lblFlightOut.TabIndex = 2;
             this.lblFlightOut.Text = "Randomly Generated Flight ID";
             // 
             // lblFlightID
             // 
             this.lblFlightID.AutoSize = true;
-            this.lblFlightID.Location = new System.Drawing.Point(6, 25);
+            this.lblFlightID.Location = new System.Drawing.Point(8, 31);
+            this.lblFlightID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFlightID.Name = "lblFlightID";
-            this.lblFlightID.Size = new System.Drawing.Size(49, 13);
+            this.lblFlightID.Size = new System.Drawing.Size(58, 16);
             this.lblFlightID.TabIndex = 1;
             this.lblFlightID.Text = "Flight ID:";
             // 
@@ -170,9 +200,11 @@
             this.gbxDestination.Controls.Add(this.dateArrival);
             this.gbxDestination.Controls.Add(this.dateDeparture);
             this.gbxDestination.ForeColor = System.Drawing.Color.White;
-            this.gbxDestination.Location = new System.Drawing.Point(6, 125);
+            this.gbxDestination.Location = new System.Drawing.Point(8, 154);
+            this.gbxDestination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbxDestination.Name = "gbxDestination";
-            this.gbxDestination.Size = new System.Drawing.Size(355, 121);
+            this.gbxDestination.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxDestination.Size = new System.Drawing.Size(473, 149);
             this.gbxDestination.TabIndex = 0;
             this.gbxDestination.TabStop = false;
             this.gbxDestination.Text = "Time and Date Information";
@@ -180,78 +212,81 @@
             // cbxDestination
             // 
             this.cbxDestination.FormattingEnabled = true;
-            this.cbxDestination.Location = new System.Drawing.Point(149, 87);
+            this.cbxDestination.Location = new System.Drawing.Point(199, 107);
+            this.cbxDestination.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbxDestination.Name = "cbxDestination";
-            this.cbxDestination.Size = new System.Drawing.Size(200, 21);
+            this.cbxDestination.Size = new System.Drawing.Size(265, 24);
             this.cbxDestination.TabIndex = 5;
             // 
             // lblDestinationID
             // 
             this.lblDestinationID.AutoSize = true;
-            this.lblDestinationID.Location = new System.Drawing.Point(6, 90);
+            this.lblDestinationID.Location = new System.Drawing.Point(8, 111);
+            this.lblDestinationID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDestinationID.Name = "lblDestinationID";
-            this.lblDestinationID.Size = new System.Drawing.Size(77, 13);
+            this.lblDestinationID.Size = new System.Drawing.Size(93, 16);
             this.lblDestinationID.TabIndex = 4;
             this.lblDestinationID.Text = "Destination ID:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 57);
+            this.label2.Location = new System.Drawing.Point(8, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(82, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Arrival Time:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Location = new System.Drawing.Point(8, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Departure Time:";
             // 
             // dateArrival
             // 
-            this.dateArrival.Location = new System.Drawing.Point(149, 57);
+            this.dateArrival.Location = new System.Drawing.Point(199, 70);
+            this.dateArrival.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateArrival.Name = "dateArrival";
-            this.dateArrival.Size = new System.Drawing.Size(200, 20);
+            this.dateArrival.Size = new System.Drawing.Size(265, 22);
             this.dateArrival.TabIndex = 1;
             // 
             // dateDeparture
             // 
-            this.dateDeparture.Location = new System.Drawing.Point(149, 19);
+            this.dateDeparture.Location = new System.Drawing.Point(199, 23);
+            this.dateDeparture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateDeparture.Name = "dateDeparture";
-            this.dateDeparture.Size = new System.Drawing.Size(200, 20);
+            this.dateDeparture.Size = new System.Drawing.Size(265, 22);
             this.dateDeparture.TabIndex = 0;
             // 
-            // txtSeatsAvail
+            // lblPlaceHolder
             // 
-            this.txtSeatsAvail.Location = new System.Drawing.Point(193, 50);
-            this.txtSeatsAvail.Name = "txtSeatsAvail";
-            this.txtSeatsAvail.Size = new System.Drawing.Size(146, 20);
-            this.txtSeatsAvail.TabIndex = 7;
-            // 
-            // txtTotalBaggage
-            // 
-            this.txtTotalBaggage.Location = new System.Drawing.Point(193, 88);
-            this.txtTotalBaggage.Name = "txtTotalBaggage";
-            this.txtTotalBaggage.Size = new System.Drawing.Size(146, 20);
-            this.txtTotalBaggage.TabIndex = 8;
+            this.lblPlaceHolder.AutoSize = true;
+            this.lblPlaceHolder.Location = new System.Drawing.Point(27, 13);
+            this.lblPlaceHolder.Name = "lblPlaceHolder";
+            this.lblPlaceHolder.Size = new System.Drawing.Size(0, 16);
+            this.lblPlaceHolder.TabIndex = 10;
+            this.lblPlaceHolder.Visible = false;
             // 
             // Add_flight
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(800, 359);
+            this.ClientSize = new System.Drawing.Size(1067, 442);
+            this.Controls.Add(this.lblPlaceHolder);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.gbxConfirm);
             this.Controls.Add(this.gbxInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Add_flight";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_flight";
@@ -262,6 +297,7 @@
             this.gbxDestination.ResumeLayout(false);
             this.gbxDestination.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -286,5 +322,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTotalBaggage;
         private System.Windows.Forms.TextBox txtSeatsAvail;
+        private System.Windows.Forms.Label lblPlaceHolder;
     }
 }
