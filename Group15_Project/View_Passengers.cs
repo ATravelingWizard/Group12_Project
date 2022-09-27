@@ -27,7 +27,7 @@ namespace Group15_Project
         SqlDataReader read;
         public int destinationid;
 
-        public static string name, surname, email;
+        public static string name, surname, email, bagID;
         public static double bag;
 
         private void frmView_Passengers_Load(object sender, EventArgs e)
@@ -280,6 +280,7 @@ namespace Group15_Project
                 name = "Louw";
                 surname = "Hugo";
                 email = "lh@gmail.com";
+                bagID = "Louw8927";
 
                 conn.Open();
 

@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Group15_Project
 {
     public partial class Edit_Passenger : Form
     {
+        string constr = @"Data Source=.;Initial Catalog = Skyfall; Integrated Security = True";
+        SqlConnection conn;
+        SqlCommand commPas, commBag;
+        SqlDataAdapter adap;
+        DataSet ds;
+        SqlDataReader read;
+
         public Edit_Passenger()
         {
             InitializeComponent();
@@ -25,6 +33,32 @@ namespace Group15_Project
         private void button1_Click(object sender, EventArgs e)
         {
             //Updated values should replace current values in the database and should be reflected in the other databases too.
+            try
+            {
+                conn = new SqlConnection(constr);
+
+                conn.Open();
+                conn.Close();
+
+                conn.Open();
+
+                string sqlPas = $"UPDATE Passengers SET First_Name = '{txtName.Text}', Last_Name = '{txtSurname.Text}', Contact_Email = '{txtEmail.Text}' WHERE First_name = '{frmView_Passengers.name}', Last_Name = '{frmView_Passengers.surname}', Contact_Email = '{frmView_Passengers.email}'";
+                commPas = new SqlCommand(sqlPas, conn);
+                commPas.ExecuteNonQuery();
+
+                MessageBox.Show("Hier");
+
+                string sqlBag = $"UPDATE Baggage SET Weight= '{(double)numBaggage.Value}' WHERE Baggage_Code = 'Louw8927'";
+                commBag = new SqlCommand(sqlBag);
+                commBag.ExecuteNonQuery();
+
+                conn.Close();
+
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
 
             this.Close();
         }
@@ -36,7 +70,6 @@ namespace Group15_Project
 
         private void Edit_Passenger_Load(object sender, EventArgs e)
         {
-            //Current database values should be loaded into the form labels.
             lblOutName.Text = frmView_Passengers.name;
             lblOutSurname.Text = frmView_Passengers.surname;
             lblEmailOut.Text = frmView_Passengers.email;
