@@ -62,8 +62,7 @@ namespace Group15_Project
             {
                 MessageBox.Show("An Error has ocurred: " + ex);
             }
-
-
+            int i;
             try
             {
                 if (Double.Parse(txtTotalBaggage.Text) > 1200.00 || txtTotalBaggage.Text == null)
@@ -78,6 +77,14 @@ namespace Group15_Project
                 {
                     MessageBox.Show("Please enter an Arrival Date after the Departure Date");
                 }
+                else if(txtSeatsAvail.Text == null)
+                {
+                    MessageBox.Show("Please input a number of seats.");
+                }
+                else if (txtTotalBaggage.Text == null)
+                {
+                    MessageBox.Show("Please input a baggage weight.");
+                }
                 else
                 {
                     lbxConfirm.Items.Add("===========Flight Information=========");
@@ -89,13 +96,13 @@ namespace Group15_Project
                     lbxConfirm.Items.Add("Destination ID: " + lblPlaceHolder.Text);
 
                     btnConfirm.Enabled = true;
+                    btnSubmit.Enabled = false;
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("An error occured with the input, please try again");
+                MessageBox.Show("An error occured: Please check if all fields are filled and if values are in the right format." + ex);
             }
-            btnSubmit.Enabled = false;
         }
 
         private void gbxConfirm_Enter(object sender, EventArgs e)
@@ -158,6 +165,11 @@ namespace Group15_Project
             Random rand = new Random();
             int num = rand.Next(0, chars.Length);
             return chars[num];
+        }
+
+        private void Add_flight_Validating(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

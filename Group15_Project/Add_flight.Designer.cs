@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -48,9 +49,11 @@
             this.dateArrival = new System.Windows.Forms.DateTimePicker();
             this.dateDeparture = new System.Windows.Forms.DateTimePicker();
             this.lblPlaceHolder = new System.Windows.Forms.Label();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxConfirm.SuspendLayout();
             this.gbxInfo.SuspendLayout();
             this.gbxDestination.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConfirm
@@ -291,11 +294,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_flight";
             this.Load += new System.EventHandler(this.Add_flight_Load);
+            this.Validating += new System.ComponentModel.CancelEventHandler(this.Add_flight_Validating);
             this.gbxConfirm.ResumeLayout(false);
             this.gbxInfo.ResumeLayout(false);
             this.gbxInfo.PerformLayout();
             this.gbxDestination.ResumeLayout(false);
             this.gbxDestination.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,5 +328,6 @@
         private System.Windows.Forms.TextBox txtTotalBaggage;
         private System.Windows.Forms.TextBox txtSeatsAvail;
         private System.Windows.Forms.Label lblPlaceHolder;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }
