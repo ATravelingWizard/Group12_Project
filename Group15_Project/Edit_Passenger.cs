@@ -15,10 +15,12 @@ namespace Group15_Project
     {
         string constr = @"Data Source=.;Initial Catalog = Skyfall; Integrated Security = True";
         SqlConnection conn;
-        SqlCommand commPas, commBag;
+        SqlCommand commPas, commBag, comm;
         SqlDataAdapter adap;
         DataSet ds;
         SqlDataReader read;
+
+        public string passID;
 
         public Edit_Passenger()
         {
@@ -35,21 +37,16 @@ namespace Group15_Project
             //Updated values should replace current values in the database and should be reflected in the other databases too.
             try
             {
-                conn = new SqlConnection(constr);
-
-                conn.Open();
-                conn.Close();
-
                 conn.Open();
 
-                string sqlPas = $"UPDATE Passengers SET First_Name = '{txtName.Text}', Last_Name = '{txtSurname.Text}', Contact_Email = '{txtEmail.Text}' WHERE First_name = '{frmView_Passengers.name}', Last_Name = '{frmView_Passengers.surname}', Contact_Email = '{frmView_Passengers.email}'";
+                string sqlPas = $"UPDATE Passengers SET First_Name = '{txtName.Text}', Last_Name = '{txtSurname.Text}', Contact_Email = '{txtEmail.Text}' WHERE First_Name = '{frmView_Passengers.name}' AND Last_Name = '{frmView_Passengers.surname}' AND Contact_Email = '{frmView_Passengers.email}'";
                 commPas = new SqlCommand(sqlPas, conn);
                 commPas.ExecuteNonQuery();
 
                 MessageBox.Show("Hier");
 
                 string sqlBag = $"UPDATE Baggage SET Weight= '{(double)numBaggage.Value}' WHERE Baggage_Code = 'Louw8927'";
-                commBag = new SqlCommand(sqlBag);
+                commBag = new SqlCommand(sqlBag, conn);
                 commBag.ExecuteNonQuery();
 
                 conn.Close();
@@ -74,6 +71,11 @@ namespace Group15_Project
             lblOutSurname.Text = frmView_Passengers.surname;
             lblEmailOut.Text = frmView_Passengers.email;
             lblOutWeight.Text = frmView_Passengers.bag.ToString();
+
+            conn = new SqlConnection(constr);
+
+            conn.Open();
+            conn.Close();
         }
     }
 }
