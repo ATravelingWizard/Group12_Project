@@ -66,6 +66,10 @@ namespace Group15_Project
             {
                 MessageBox.Show("Enter a value smaller than 25KG");
             }
+            else if(txtBaggageWeight.Text == null || txtEmail.Text == null || txtName.Text == null || txtSurname.Text == null)
+            {
+                MessageBox.Show("Enter data in the empty fields.");
+            }
             else
             {
                 //send values to listbox last

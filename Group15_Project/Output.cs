@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Aspose.Pdf;
 using Aspose.Foundation;
+using System.IO;
 
 namespace Group15_Project
 {
@@ -32,21 +33,42 @@ namespace Group15_Project
             //This list box should display the filtered database from the View Passenger or View Flight forms. Make sure to include the Titles of the fields in the records.
         }
 
-        private void btnOutput_Click(object sender, EventArgs e)
+        private async void btnOutput_Click(object sender, EventArgs e)
         {
-            Document document = new Document();
+            try
+            {
+               StreamWriter file = new StreamWriter(@"C:\Users\henar\OneDrive\Documents\Report.txt");
+                file.WriteLine(lbxOutput.Text);
+                file.Close();
 
-            Page page = document.Pages.Add();
-            page.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("Report Generate for SkyFall."));
-            page.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment("The following report was generated on the: " + DateTime.Now));
-            page.Paragraphs.Add(new Aspose.Pdf.Text.TextFragment(lbxOutput.Text));
-
-            document.Save("Report.pdf");
+                MessageBox.Show("Text file successfully created!");
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Output_Load(object sender, EventArgs e)
         {
+            if(frmView_Passengers.selected_passagenger != null)
+            {
+                lbxOutput.Items.Clear();
+                lbxOutput.Items.Add("Passenger Code\t" + "Baggage Code\t" + " Seat Code\t" + "First Name\t" + "Surname\t\t" + "Contact Email");
+                lbxOutput.Items.Add("===================================================================================================");
+                lbxOutput.Items.Add(frmView_Passengers.selected_passagenger);
+                lbxOutput.Items.Add("===================================================================================================");
+            }
 
+            if(frmView_Flights.selected_flight != null)
+            {
+                lbxOutput.Items.Clear();
+                lbxOutput.Items.Add("Flight Code\t" + "Destination ID\t" + " Departure Date and Time\t" + "Arrival Date and Time\t" + "Total Baggage\t" + "Seats Available");
+                lbxOutput.Items.Add("===================================================================================================");
+                lbxOutput.Items.Add(frmView_Flights.selected_flight);
+                lbxOutput.Items.Add("===================================================================================================");
+            }
         }
     }
 }

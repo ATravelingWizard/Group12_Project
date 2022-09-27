@@ -26,6 +26,7 @@ namespace Group15_Project
         DataSet ds;
         SqlDataReader read;
         public int destinationid;
+        public static string selected_flight;
 
         private void frmView_Flights_Load(object sender, EventArgs e)
         {
@@ -260,6 +261,15 @@ namespace Group15_Project
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            if (dgwFlights.SelectedCells.Count > 0)
+            {
+                selected_flight = dgwFlights.SelectedCells[0].Value.ToString() + "\t\t"
+                    + dgwFlights.SelectedCells[1].Value.ToString() + "\t\t"
+                    + dgwFlights.SelectedCells[2].Value.ToString() + "\t"
+                    + dgwFlights.SelectedCells[3].Value.ToString() + "\t"
+                    + dgwFlights.SelectedCells[4].Value.ToString() + "\t\t"
+                    + dgwFlights.SelectedCells[5].Value.ToString();
+            }
             Output output = new Output();
             output.ShowDialog();
         }

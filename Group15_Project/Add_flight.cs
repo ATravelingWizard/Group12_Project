@@ -39,10 +39,30 @@ namespace Group15_Project
             txtSeatsAvail.Text = "";
             txtTotalBaggage.Text = "";
             lbxConfirm.Items.Clear();
+            lblPlaceHolder.Text = "";
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            try
+            {
+                adap = new SqlDataAdapter();
+                string destination = $"SELECT * FROM Destinations WHERE Destination_Name LIKE '" + cbxDestination.Text + "'";
+
+                conn.Open();
+
+                comm = new SqlCommand(destination, conn);
+                ds = new DataSet();
+                lblPlaceHolder.Text = Convert.ToString(comm.ExecuteScalar());
+
+                conn.Close();
+
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show("An Error has ocurred: " + ex);
+            }
+
             try
             {
                 if (Double.Parse(txtTotalBaggage.Text) > 1200.00 || txtTotalBaggage.Text == null)
@@ -57,6 +77,14 @@ namespace Group15_Project
                 {
                     MessageBox.Show("Please enter an Arrival Date after the Departure Date");
                 }
+                else if(txtSeatsAvail.Text == null)
+                {
+                    MessageBox.Show("Please input a number of seats.");
+                }
+                else if (txtTotalBaggage.Text == null)
+                {
+                    MessageBox.Show("Please input a baggage weight.");
+                }
                 else
                 {
                     lbxConfirm.Items.Add("===========Flight Information=========");
@@ -65,16 +93,16 @@ namespace Group15_Project
                     lbxConfirm.Items.Add("Total Baggage (KG): " + txtTotalBaggage.Text);
                     lbxConfirm.Items.Add("Departure Time & Date: " + dateDeparture.Value.ToString());
                     lbxConfirm.Items.Add("Arrival Time & Date: " + dateArrival.Value.ToString());
-                    lbxConfirm.Items.Add("Destination ID: " + cbxDestination.Text);
+                    lbxConfirm.Items.Add("Destination ID: " + lblPlaceHolder.Text);
 
                     btnConfirm.Enabled = true;
+                    btnSubmit.Enabled = false;
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("An error occured with the input, please try again");
+                MessageBox.Show("An error occured: Please check if all fields are filled and if values are in the right format." + ex);
             }
-            
         }
 
         private void gbxConfirm_Enter(object sender, EventArgs e)
@@ -85,7 +113,8 @@ namespace Group15_Project
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             adap = new SqlDataAdapter();
-            string add = $"INSERT INTO Flight VALUES('{lblFlightOut.Text}', '{cbxDestination.Text}', '{dateDeparture.Value}', '{dateArrival.Value}', '{Double.Parse(txtTotalBaggage.Text)}', '{Double.Parse(txtSeatsAvail.Text)}')";
+
+            string add = $"INSERT INTO Flight VALUES('{lblFlightOut.Text}', '{lblPlaceHolder.Text}', '{dateDeparture.Value}', '{dateArrival.Value}', '{Double.Parse(txtTotalBaggage.Text)}', '{Double.Parse(txtSeatsAvail.Text)}')";
 
             conn.Open();
 
@@ -109,13 +138,13 @@ namespace Group15_Project
 
                 conn.Open();
 
-                string sql_query = "SELECT DISTINCT Destination_ID FROM Destinations";
+                string sql_query = "SELECT DISTINCT Destination_Name FROM Destinations";
                 adap = new SqlDataAdapter(sql_query, conn);
 
                 ds = new DataSet();
                 adap.Fill(ds, "Destinations");
 
-                cbxDestination.DisplayMember = "Destination_ID";
+                cbxDestination.DisplayMember = "Destination_Name";
                 cbxDestination.DataSource = ds.Tables["Destinations"];
 
                 conn.Close();
@@ -136,6 +165,11 @@ namespace Group15_Project
             Random rand = new Random();
             int num = rand.Next(0, chars.Length);
             return chars[num];
+        }
+
+        private void Add_flight_Validating(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

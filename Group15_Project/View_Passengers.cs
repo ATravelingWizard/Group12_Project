@@ -28,7 +28,10 @@ namespace Group15_Project
         public int destinationid;
 
         public static string name, surname, email, bagID;
-        public static double bag;
+        public static double bag
+
+        public static string selected_passagenger;
+
 
         private void frmView_Passengers_Load(object sender, EventArgs e)
         {
@@ -302,8 +305,18 @@ namespace Group15_Project
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            if(dgwPassengers.SelectedCells.Count > 0)
+            {
+                selected_passagenger = dgwPassengers.SelectedCells[0].Value.ToString() + "\t"
+                    + dgwPassengers.SelectedCells[1].Value.ToString() + "\t"
+                    + dgwPassengers.SelectedCells[2].Value.ToString() + "\t"
+                    + dgwPassengers.SelectedCells[3].Value.ToString() + "\t\t"
+                    + dgwPassengers.SelectedCells[4].Value.ToString() + "\t\t"
+                    + dgwPassengers.SelectedCells[5].Value.ToString();
+            }
             Output frmOut = new Output();
             frmOut.ShowDialog();
+
         }
 
         private void dgwFlights_CellContentClick(object sender, DataGridViewCellEventArgs e)
