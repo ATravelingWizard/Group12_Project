@@ -57,6 +57,7 @@
             this.dgwPassengers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwPassengers.GridColor = System.Drawing.Color.Black;
             this.dgwPassengers.Location = new System.Drawing.Point(29, 30);
+            this.dgwPassengers.MultiSelect = false;
             this.dgwPassengers.Name = "dgwPassengers";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -67,6 +68,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgwPassengers.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgwPassengers.RowHeadersWidth = 51;
+            this.dgwPassengers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwPassengers.Size = new System.Drawing.Size(976, 461);
             this.dgwPassengers.TabIndex = 36;
             this.dgwPassengers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwFlights_CellContentClick);
