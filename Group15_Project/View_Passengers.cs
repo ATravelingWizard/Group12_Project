@@ -280,6 +280,7 @@ namespace Group15_Project
         {
             if (dgwPassengers.SelectedRows.Count > 0)
             {
+
                 name = "Louw";
                 surname = "Hugo";
                 email = "lh@gmail.com";
