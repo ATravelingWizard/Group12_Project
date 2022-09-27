@@ -28,7 +28,7 @@ namespace Group15_Project
         public int destinationid;
 
         public static string name, surname, email, bagID;
-        public static double bag
+        public static double bag;
 
         public static string selected_passagenger;
 
