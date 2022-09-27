@@ -37,6 +37,10 @@ namespace Group15_Project
         private void Edit_Passenger_Load(object sender, EventArgs e)
         {
             //Current database values should be loaded into the form labels.
+            lblOutName.Text = frmView_Passengers.name;
+            lblOutSurname.Text = frmView_Passengers.surname;
+            lblEmailOut.Text = frmView_Passengers.email;
+            lblOutWeight.Text = frmView_Passengers.bag.ToString();
         }
     }
 }
