@@ -283,7 +283,7 @@ namespace Group15_Project
                 name = dgwPassengers.SelectedCells[3].Value.ToString();
                 surname = dgwPassengers.SelectedCells[4].Value.ToString();
                 email = dgwPassengers.SelectedCells[5].Value.ToString();
-                bagID = "Louw8927";
+                bagID = dgwPassengers.SelectedCells[1].Value.ToString();
 
                 conn.Open();
 
