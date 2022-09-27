@@ -19,13 +19,16 @@ namespace Group15_Project
         }
 
         // variables to be used for acessing the databases
-        string constr = @"Data Source=LAPTOP-291EM4C8;Initial Catalog=Skyfall;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string constr = @"Data Source=.;Initial Catalog = Skyfall; Integrated Security = True";
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
         DataSet ds;
         SqlDataReader read;
         public int destinationid;
+
+        public string name, surname, email;
+        public double bag;
 
         private void frmView_Passengers_Load(object sender, EventArgs e)
         {
@@ -272,8 +275,29 @@ namespace Group15_Project
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Edit_Passenger edit_Passenger = new Edit_Passenger();
-            edit_Passenger.ShowDialog();
+            if (dgwPassengers.SelectedRows.Count > 0)
+            {
+                name = dgwPassengers.SelectedCells[3].RowIndex.ToString();
+                surname = dgwPassengers.SelectedCells[4].RowIndex.ToString();
+                email = dgwPassengers.SelectedCells[5].RowIndex.ToString();
+
+                conn.Open();
+
+                string sql = $"SELECT Weight FROM Baggage WHERE Baggage_Code = '{dgwPassengers.SelectedCells[1].RowIndex.ToString()}'";
+
+                comm = new SqlCommand(sql, conn);
+                bag = Convert.ToDouble(comm.ExecuteNonQuery());
+
+                conn.Close();
+
+                MessageBox.Show(name);
+                Edit_Passenger edit_Passenger = new Edit_Passenger();
+                edit_Passenger.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a passenger to edit");
+            }
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)

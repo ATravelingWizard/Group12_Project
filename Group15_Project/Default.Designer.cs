@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlBottomLayout = new System.Windows.Forms.Panel();
+            this.btnViewFlights = new System.Windows.Forms.Button();
             this.btnPass = new System.Windows.Forms.Button();
             this.btnAddNewFlight = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
             this.pnlTopLayout = new System.Windows.Forms.Panel();
             this.lblWelcomeTwo = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.btnViewFlights = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlBottomLayout.SuspendLayout();
             this.pnlTopLayout.SuspendLayout();
@@ -68,6 +68,22 @@
             this.pnlBottomLayout.Size = new System.Drawing.Size(186, 618);
             this.pnlBottomLayout.TabIndex = 1;
             this.pnlBottomLayout.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBottomLayout_Paint);
+            // 
+            // btnViewFlights
+            // 
+            this.btnViewFlights.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnViewFlights.FlatAppearance.BorderSize = 0;
+            this.btnViewFlights.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewFlights.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewFlights.ForeColor = System.Drawing.Color.White;
+            this.btnViewFlights.Location = new System.Drawing.Point(0, 105);
+            this.btnViewFlights.Name = "btnViewFlights";
+            this.btnViewFlights.Size = new System.Drawing.Size(186, 35);
+            this.btnViewFlights.TabIndex = 5;
+            this.btnViewFlights.Text = "&View Flights";
+            this.btnViewFlights.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnViewFlights.UseVisualStyleBackColor = true;
+            this.btnViewFlights.Click += new System.EventHandler(this.btnViewFlights_Click);
             // 
             // btnPass
             // 
@@ -166,22 +182,6 @@
             this.lblWelcome.Text = "Welcome to the";
             this.lblWelcome.Click += new System.EventHandler(this.label1_Click);
             // 
-            // btnViewFlights
-            // 
-            this.btnViewFlights.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnViewFlights.FlatAppearance.BorderSize = 0;
-            this.btnViewFlights.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewFlights.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewFlights.ForeColor = System.Drawing.Color.White;
-            this.btnViewFlights.Location = new System.Drawing.Point(0, 105);
-            this.btnViewFlights.Name = "btnViewFlights";
-            this.btnViewFlights.Size = new System.Drawing.Size(186, 35);
-            this.btnViewFlights.TabIndex = 5;
-            this.btnViewFlights.Text = "&View Flights";
-            this.btnViewFlights.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewFlights.UseVisualStyleBackColor = true;
-            this.btnViewFlights.Click += new System.EventHandler(this.btnViewFlights_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +195,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlBottomLayout.ResumeLayout(false);

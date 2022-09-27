@@ -181,8 +181,10 @@
             this.dgwFlights.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgwFlights.GridColor = System.Drawing.Color.Black;
             this.dgwFlights.Location = new System.Drawing.Point(13, 13);
+            this.dgwFlights.MultiSelect = false;
             this.dgwFlights.Name = "dgwFlights";
             this.dgwFlights.RowHeadersWidth = 51;
+            this.dgwFlights.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwFlights.Size = new System.Drawing.Size(976, 461);
             this.dgwFlights.TabIndex = 23;
             this.dgwFlights.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgwFlights_CellFormatting);

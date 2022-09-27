@@ -19,7 +19,7 @@ namespace Group15_Project
         }
 
         // varuables to be used for acessing the databases
-        string constr = @"Data Source=LAPTOP-291EM4C8;Initial Catalog=Skyfall;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        string constr = @"Data Source=.;Initial Catalog = Skyfall; Integrated Security = True";
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
