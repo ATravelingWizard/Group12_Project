@@ -21,7 +21,7 @@ namespace Group15_Project
         // variables to be used for acessing the databases
         string constr = @"Data Source=.;Initial Catalog = Skyfall; Integrated Security = True";
         SqlConnection conn;
-        SqlCommand comm;
+        SqlCommand comm, commDel;
         SqlDataAdapter adap;
         DataSet ds;
         SqlDataReader read;
@@ -269,11 +269,28 @@ namespace Group15_Project
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in dgwPassengers.SelectedRows)
+            if (dgwPassengers.SelectedRows.Count > 0)
             {
-                dgwPassengers.Rows.Remove(row);
+                name = dgwPassengers.SelectedCells[3].Value.ToString();
+                surname = dgwPassengers.SelectedCells[4].Value.ToString();
+                email = dgwPassengers.SelectedCells[5].Value.ToString();
+                bagID = dgwPassengers.SelectedCells[1].Value.ToString();
+
+                conn.Open();
+
+                string del = $"DELETE FROM Passengers WHERE First_Name = '{name}' AND Last_Name = '{surname}' AND Contact_Email = '{email}' AND Baggage_Code = '{bagID}'";
+
+                comm = new SqlCommand(del, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+
+                refreshin();
             }
-                
+            else
+            {
+                MessageBox.Show("Unable to delete selected passenger");
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

@@ -331,9 +331,24 @@ namespace Group15_Project
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgwFlights.SelectedRows)
+            if (dgwFlights.SelectedRows.Count > 0)
             {
-                dgwFlights.Rows.Remove(row);
+                flightID = dgwFlights.SelectedCells[0].Value.ToString();
+
+                conn.Open();
+
+                string del = $"DELETE FROM Flight WHERE Flight_Code = '{flightID}'";
+
+                comm = new SqlCommand(del, conn);
+                comm.ExecuteNonQuery();
+
+                conn.Close();
+
+                refreshin();
+            }
+            else
+            {
+                MessageBox.Show("Unable to delete selected flight");
             }
         }
     }
