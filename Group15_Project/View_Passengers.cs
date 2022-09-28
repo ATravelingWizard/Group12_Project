@@ -92,14 +92,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Passengers WHERE Passenger_Code = '{txtSearchCode.Text}' ";
+                string sql = $"SELECT * FROM Passengers WHERE Passenger_Code LIKE '%{txtSearchCode.Text}%' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
-                adap.Fill(ds, "Flight");
+                adap.Fill(ds, "Passengers");
 
                 dgwPassengers.DataSource = ds;
-                dgwPassengers.DataMember = "Flight";
+                dgwPassengers.DataMember = "Passengers";
 
                 conn.Close();
 
@@ -121,14 +121,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Passengers WHERE Baggage_Code = '{txtSearchBaggage.Text}' ";
+                string sql = $"SELECT * FROM Passengers WHERE Baggage_Code LIKE '%{txtSearchBaggage.Text}%'";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
-                adap.Fill(ds, "Flight");
+                adap.Fill(ds, "Passengers");
 
                 dgwPassengers.DataSource = ds;
-                dgwPassengers.DataMember = "Flight";
+                dgwPassengers.DataMember = "Passengers";
 
                 conn.Close();
 
@@ -165,10 +165,10 @@ namespace Group15_Project
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
-                adap.Fill(ds, "Flight");
+                adap.Fill(ds, "Passengers");
 
                 dgwPassengers.DataSource = ds;
-                dgwPassengers.DataMember = "Flight";
+                dgwPassengers.DataMember = "Passengers";
 
                 conn.Close();
 
@@ -194,10 +194,10 @@ namespace Group15_Project
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
-                adap.Fill(ds, "Flight");
+                adap.Fill(ds, "Passengers");
 
                 dgwPassengers.DataSource = ds;
-                dgwPassengers.DataMember = "Flight";
+                dgwPassengers.DataMember = "Passengers";
 
                 conn.Close();
 
@@ -223,10 +223,10 @@ namespace Group15_Project
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
-                adap.Fill(ds, "Flight");
+                adap.Fill(ds, "Passengers");
 
                 dgwPassengers.DataSource = ds;
-                dgwPassengers.DataMember = "Flight";
+                dgwPassengers.DataMember = "Passengers";
 
                 conn.Close();
 
@@ -248,14 +248,14 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Passengers WHERE Seat_Code = '{txtSearchSeatcode.Text}' ";
+                string sql = $"SELECT * FROM Passengers WHERE Seat_Code LIKE '%{txtSearchSeatcode.Text}%'";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
-                adap.Fill(ds, "Flight");
+                adap.Fill(ds, "Passengers");
 
                 dgwPassengers.DataSource = ds;
-                dgwPassengers.DataMember = "Flight";
+                dgwPassengers.DataMember = "Passengers";
 
                 conn.Close();
 

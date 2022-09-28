@@ -112,7 +112,7 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight WHERE Flight_Code = '{txtFlightNum.Text}'";
+                string sql = $"SELECT * FROM Flight WHERE Flight_Code LIKE '%{txtFlightNum.Text}%' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
@@ -186,7 +186,7 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight WHERE Total_Baggage_Weight = '{numBaggage.Text}' ";
+                string sql = $"SELECT * FROM Flight WHERE Total_Baggage_Weight LIKE '%{numBaggage.Value}%' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
@@ -246,7 +246,7 @@ namespace Group15_Project
                 adap = new SqlDataAdapter();
                 ds = new DataSet();
 
-                string sql = $"SELECT * FROM Flight WHERE Departure_Time LIKE '{dtpDepart.Value}' ";
+                string sql = $"SELECT * FROM Flight WHERE Departure_Time LIKE '%{dtpDepart.Value}%' ";
 
                 comm = new SqlCommand(sql, conn);
                 adap.SelectCommand = comm;
@@ -267,7 +267,31 @@ namespace Group15_Project
 
         private void dtpArrival_ValueChanged(object sender, EventArgs e)
         {
+            try
+            {
 
+                conn.Open();
+
+                adap = new SqlDataAdapter();
+                ds = new DataSet();
+
+                string sql = $"SELECT * FROM Flight WHERE Arrival_Time LIKE '%{dtpArrival.Value}%' ";
+
+                comm = new SqlCommand(sql, conn);
+                adap.SelectCommand = comm;
+                adap.Fill(ds, "Flight");
+
+                dgwFlights.DataSource = ds;
+                dgwFlights.DataMember = "Flight";
+
+                conn.Close();
+
+
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
